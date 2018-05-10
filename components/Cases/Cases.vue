@@ -1,5 +1,5 @@
 <template lang="pug">
-    .section#cases
+    section#cases
       .container
         h2(v-for="item, index in cases" :key="index") {{item.fields.title}}
           

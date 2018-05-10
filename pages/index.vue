@@ -1,6 +1,6 @@
 <template lang="pug">
   main
-    Splash
+    Splash(:claim="claim")
     Competencies(:competencies="competencies")
     Team(:team="team")
     Cases(:cases="cases")
@@ -24,6 +24,9 @@ export default {
   asyncData ({params}) {
     return Promise.all([
       client.getEntries({
+        content_type: 'claim'
+      }),
+      client.getEntries({
         content_type: 'competencyArea'
       }),
       client.getEntries({
@@ -35,11 +38,12 @@ export default {
         // get people
         content_type: 'person'
       })
-    ]).then(([entries, cases, team]) => {
+    ]).then(([claim, competencies, cases, team]) => {
       // return data that should be available
       // in the template
       return {
-        competencies: entries.items,
+        claim: claim.items[0],
+        competencies: competencies.items,
         cases: cases.items,
         team: team.items
       }

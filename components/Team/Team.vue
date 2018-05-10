@@ -1,5 +1,5 @@
 <template lang="pug">
-    .section#team
+    section#team
       .container
         h2(v-for="person in team" :key="person.id") {{person.fields.name}}
           

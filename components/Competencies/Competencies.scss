@@ -1,0 +1,13 @@
+@import '../../assets/css/global';
+$c: 'competencies';
+
+.#{$c} {
+  display: flex;
+  .card-wrapper {
+    padding: 1rem;
+  }
+  .card {
+    padding: 1rem;
+    background: #e9e9e9;
+  }
+}

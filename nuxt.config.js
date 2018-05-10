@@ -47,6 +47,9 @@ module.exports = {
       { rel: 'apple-touch-icon-precomposed', sizes: '152x152', href: '/favicons/apple-touch-icon-152x152.png' }
     ]
   },
+  css: [
+    '@/assets/css/main.scss'
+  ],
   /*
   ** Customize the progress bar color
   */

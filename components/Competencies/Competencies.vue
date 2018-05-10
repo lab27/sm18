@@ -1,7 +1,8 @@
 <template lang="pug">
-    .section#competencies
-      .container
-        h2(v-for="area, index in competencies" :key="index") {{area.fields.title}}
+    section#competencies.competencies
+      .card-wrapper(v-for="area, index in competencies" :key="index")
+        .card
+          h2 {{area.fields.title}}
           ul 
             li(v-for="item, index in area.fields.competencyList" :key="index") {{item}}
           
@@ -13,3 +14,5 @@ export default {
   props: ['competencies']
 }
 </script>
+
+<style src="./Competencies.scss" lang="scss"></style>

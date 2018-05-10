@@ -1,0 +1,128 @@
+/*
+ * Check Typospecs for more information
+ * [Add dropbox link to file for Typo-specification here]
+ */
+
+@mixin fz-small {
+  font-size: px-to-rem($s-fz-small);
+  line-height: $s-line-height-std;
+
+  @include mq($from: medium) {
+    font-size: px-to-rem($s-fz-small-large);
+  }
+}
+
+@mixin fz-base {
+  font-size: px-to-rem($s-fz-base);
+  line-height: $s-line-height-std;
+
+  @include mq($from: medium) {
+    font-size: px-to-rem($s-fz-base-large);
+  }
+}
+
+@mixin fz-heading4 {
+  font-size: px-to-rem($s-fz-heading4);
+  line-height: $s-line-height-std;
+
+  @include mq($from: medium) {
+    font-size: px-to-rem($s-fz-heading4-large);
+  }
+}
+
+@mixin fz-heading3 {
+  font-size: px-to-rem($s-fz-heading3);
+  line-height: $s-line-height-std;
+
+  @include mq($from: medium) {
+    font-size: px-to-rem($s-fz-heading3-large);
+  }
+}
+
+
+@mixin fz-heading2 {
+  font-size: px-to-rem($s-fz-heading2);
+  line-height: $s-line-height-std;
+
+  @include mq($from: medium) {
+    font-size: px-to-rem($s-fz-heading2-large);
+  }
+}
+
+
+@mixin fz-heading1 {
+  font-size: px-to-rem($s-fz-heading1);
+  line-height: $s-line-height-std;
+
+  @include mq($from: medium) {
+    font-size: px-to-rem($s-fz-heading1-large);
+  }
+}
+
+
+/*
+ * Strong,B Styles
+ */
+
+@mixin font-style-strong {
+  color: $s-color-white;
+  background-color: $s-color-black;
+}
+
+/*
+ * Link & Button Styles
+ */
+
+@mixin font-style-link {
+  @include fz-base;
+  font-family: $s-font-family-base;
+  text-decoration: underline;
+}
+
+
+/*
+ * Font Styles
+ */
+
+@mixin font-style-button {
+  @include fz-base;
+  font-family: $s-font-family-base;
+}
+
+/*
+ * Font Styles defined in TypoSpecs
+ */
+
+@mixin font-style-small {
+  @include fz-info;
+  font-family: $s-font-family-base;
+}
+
+@mixin font-style-base {
+  @include fz-base;
+  font-family: $s-font-family-base;
+}
+
+@mixin font-style-heading4 {
+  @include fz-heading4;
+  font-family: $s-font-family-base;
+  font-weight: bold; // replace this with an actual font file
+}
+
+@mixin font-style-heading3 {
+  @include fz-heading3;
+  font-family: $s-font-family-base;
+  font-weight: bold; // replace this with an actual font file
+}
+
+@mixin font-style-heading2 {
+  @include fz-heading2;
+  font-family: $s-font-family-base;
+  font-weight: bold; // replace this with an actual font file
+}
+
+@mixin font-style-heading1 {
+  @include fz-heading1;
+  font-family: $s-font-family-base;
+  font-weight: bold; // replace this with an actual font file
+}

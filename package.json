@@ -13,6 +13,9 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@nuxtjs/dotenv": "^1.1.1",
+    "contentful": "^6.1.0",
+    "marked": "^0.3.19",
     "node-sass": "^4.9.0",
     "nuxt": "^1.0.0",
     "pug": "^2.0.3",

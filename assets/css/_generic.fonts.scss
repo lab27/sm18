@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Lucid Placeholder Fonto';
+  font-style: normal;
+  font-weight: normal;
+  src: url('/fonts/lucid-fonto.woff2') format('woff2'), url('/fonts/lucid-fonto.woff') format('woff');
+}
+
+// Include first font twice! This a known bug without a solution so far
+@font-face {
+  font-family: 'Lucid Placeholder Fonto';
+  font-style: normal;
+  font-weight: normal;
+  src: url('/fonts/lucid-fonto.woff2') format('woff2'), url('/fonts/lucid-fonto.woff') format('woff');
+}

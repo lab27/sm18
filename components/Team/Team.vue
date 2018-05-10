@@ -1,8 +1,10 @@
 <template lang="pug">
     section#team
       .container
-        h2(v-for="person in team" :key="person.id") {{person.fields.name}}
-          
+        .person(v-for="person in team" :key="person.id")
+          h2 {{person.fields.name}}
+          p  {{person.fields.title}}
+          p  {{person.fields.shortBio}}
 </template>
 
 <script>

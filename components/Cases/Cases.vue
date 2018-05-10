@@ -1,7 +1,9 @@
 <template lang="pug">
     section#cases
-      .container
-        h2(v-for="item, index in cases" :key="index") {{item.fields.title}}
+      .case(v-for="item, index in cases" :key="index")
+        h2 {{item.fields.title}}
+        p {{item.fields.description}}
+        //- p(v-html="marked(item.fields.body)") 
           
 </template>
 

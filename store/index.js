@@ -8,29 +8,33 @@ export const state = () => ({
     teamWidth: 0,
     personWidth: 0,
     teamOffset: 0,
-    openPerson: null
+    openPerson: null,
+    userIsDragging: false
 })
 
 export const mutations = {
-    setWindowHeight(state, data) {
-      state.windowHeight = data
-    },
-    setWindowWidth(state, data) {
-      state.windowWidth = data
-    },
-    setMobile(state, data) {
-      state.isMobile = data
-    },
-    setTeamWidth(state, data) {
-      state.teamWidth = data
-    },
-    setTeamOffset(state, data) {
-      state.teamOffset = data
-    },
-    setPersonWidth(state, data) {
-      state.personWidth = data
-    },
-    setOpenPerson(state, data) {
-      state.openPerson = data
-    }
+  setWindowHeight(state, data) {
+    state.windowHeight = data
+  },
+  setWindowWidth(state, data) {
+    state.windowWidth = data
+  },
+  setMobile(state, data) {
+    state.isMobile = data
+  },
+  setTeamWidth(state, data) {
+    state.teamWidth = data
+  },
+  setTeamOffset(state, data) {
+    state.teamOffset = data
+  },
+  setPersonWidth(state, data) {
+    state.personWidth = data
+  },
+  setOpenPerson(state, data) {
+    state.openPerson = data
+  },
+  setUserDragging(state, data) {
+    state.userIsDragging = data
+  }
 }

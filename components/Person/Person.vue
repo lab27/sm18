@@ -26,19 +26,24 @@ export default {
     },
     isOpen() {
       return this.$store.state.openPerson === this.index
+    },
+    userIsDragging() {
+      return this.$store.state.userIsDragging
     }
   },
   methods: {
     togglePersonOpen() {
-      const viewWidth = window.innerWidth / 4 * 3
-      this.$parent.$refs.team.scroll({
-        top: 0,
-        left: this.index * viewWidth,
-        behavior: 'smooth'
-      })
-      this.$store.commit('setTeamOffset', this.myOffset)
-      this.$store.commit('setOpenPerson', this.isOpen ? undefined : this.index)
-      // this.isOpen = !this.isOpen
+      if(!this.userIsDragging) {
+        const viewWidth = window.innerWidth / 4 * 3
+        this.$parent.$refs.team.scroll({
+          top: 0,
+          left: this.index * viewWidth,
+          behavior: 'smooth'
+        })
+        this.$store.commit('setTeamOffset', this.myOffset)
+        this.$store.commit('setOpenPerson', this.isOpen ? undefined : this.index)
+        // this.isOpen = !this.isOpen
+      }
     }
   }
 }

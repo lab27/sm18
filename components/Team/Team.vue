@@ -6,6 +6,7 @@
 
 <script>
 import Person from '~/components/Person/Person'
+const interact = require('interactjs');
 export default {
   name: 'Team',
   props: ['team'],
@@ -20,9 +21,56 @@ export default {
       return this.$store.state.teamOffset
     }
   },
+  data () {
+    return {
+      scrollLength: 0
+    }
+  },
   beforeMount() {
     let teamWidth = this.team.length * 75 + 'vw'
     this.$store.commit('setTeamWidth', teamWidth)
+  },
+  mounted () {
+    var movable = document.querySelector('#team');
+    const self = this;
+    interact(movable)
+    .draggable({
+      inertia: true,
+      restrict: {
+        restriction: "parent",
+        endOnly: true
+      },
+      autoScroll: true,
+      onmove: function (event) {
+        self.userStartsDragging()
+        self.scroll(event)
+      },
+      onend: function (event) {
+        setTimeout(function () {
+          self.userEndsDragging()
+        }, 500);
+      }
+    })
+  },
+  methods: {
+    scroll (event) {
+      console.log('scroll', event)
+      this.$refs.team.scrollLeft = this.$refs.team.scrollLeft - (event.dx)
+      this.scrollLength = event.clientX
+    },
+    checkDirection () {
+      if (event.clientX > this.scrollLength) {
+        return '+'
+      } else {
+        return '-'
+      }
+    },
+    userStartsDragging () {
+      this.$store.commit('setUserDragging', true)
+    },
+    userEndsDragging () {
+      this.$store.commit('setUserDragging', false)
+    }
   },
   watch: {
     teamOffset() {

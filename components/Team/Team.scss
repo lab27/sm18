@@ -5,6 +5,8 @@ $c: 'Team';
   max-height: 100vh;
   width: 100vw;
   overflow: scroll;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
 
   &__wrap {
     display: flex;

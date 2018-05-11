@@ -1,13 +1,9 @@
 <template lang="pug">
-  .container
-    CloseButton(:link="'/#clients'")
-    .client-body
-      //- p(v-if="company") {{company}}
-      p(v-for="thing in cases")
-        span {{ thing.fields.title }}
-      //-   p ***********************
-      //- p {{ cases }}
-      //- div(v-html="marked(client.fields.body)")
+  section.Client
+    nuxt-link(to="/#clients").Client__back Back
+    .Client__column.Client__logo-container
+      img.Client__logo(:src="client.fields.icon.fields.file.url")
+    .Client__column(v-for="thing in cases" :style="{ backgroundImage: 'url(' + thing.fields.heroImage.fields.file.url + ')'}")
 </template>
 
 <script>
@@ -45,3 +41,22 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.Client {
+  display: flex;
+  flex-flow: row nowrap;
+  &__back {
+    position: absolute;
+    left: 2rem;
+    bottom: 4rem;
+    text-decoration: none;
+  }
+
+  &__column {
+    width: 25vw;
+    height: 100vh;
+  }
+}
+
+</style>

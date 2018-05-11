@@ -2,10 +2,11 @@
   .container
     CloseButton(:link="'/#clients'")
     .client-body
+      //- p(v-if="company") {{company}}
       p(v-for="thing in cases")
-        //- span {{thing.fields.client.fields.slug}}
-        span {{thing}}
-        p ***********************
+        span {{ thing.fields.title }}
+      //-   p ***********************
+      //- p {{ cases }}
       //- div(v-html="marked(client.fields.body)")
 </template>
 
@@ -16,22 +17,30 @@ export default {
   components: {
     CloseButton
   },
-   asyncData({ params, error, payload }) {
+  data () {
+    return {
+      cases: [],
+      client: {}
+    }
+  },
+  asyncData({ params, error, payload }) {
     if (payload) return { cases: payload };
     return client
       .getEntries({
-        content_type: 'blogPost',
-        // 'fields.client.fields.title': params.slug,
+        content_type: 'blogPost'
       })
       .then(entries => {
-        return { cases: entries.items };
+        const cases = entries.items.filter(e => e.fields.client.fields.slug === params.slug)
+        const client = entries.items.find(e => e.fields.client.fields.slug === params.slug).fields.client
+        console.log('client', client)
+        return { cases, client }
       })
       .catch(e => console.log(e));
   },
 
   head() {
     return {
-      // title: this.client.fields.title,
+      title: this.client.fields.title
     };
   },
 };

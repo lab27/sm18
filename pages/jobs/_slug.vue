@@ -26,7 +26,7 @@ export default {
   },
   head() {
     return {
-      title: this.job.fields.title,
+      title: this.job.fields.title
     };
   },
 };

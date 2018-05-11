@@ -81,7 +81,7 @@ export default {
     }).catch(console.error)
   },
   head: {
-    title: 'Latest Posts',
+    // title: 'Latest Posts',
   },
   methods: {
     handleWindowResize() {

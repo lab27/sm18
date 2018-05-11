@@ -2,11 +2,15 @@
 $c: 'Team';
 .#{$c} {
   position: relative;
-  left: 0;
-  display: flex;
   max-height: 100vh;
-  overflow: hidden;
-  will-change: left;
-  transition: left .5s $s-default-easing ;
-}
+  width: 100vw;
+  overflow: scroll;
 
+  &__wrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    will-change: transform;
+    transition: transform .5s $s-default-easing ;
+  }
+}

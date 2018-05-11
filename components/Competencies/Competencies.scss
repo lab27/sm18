@@ -3,6 +3,16 @@ $c: 'competencies';
 
 .#{$c} {
   display: flex;
+  flex-flow: column nowrap;
+
+  .cards {
+    display: flex;
+    flex-flow: column nowrap;
+
+    &.expanded {
+      flex-flow: row nowrap;
+    }
+  }
   .card-wrapper {
     padding: 1rem;
   }

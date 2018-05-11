@@ -6,6 +6,7 @@
     //- Cases(:cases="cases")
     Clients(:clients="clients")
     Jobs(:jobs="jobs")
+    Contact(:contact="contact")
 </template>
 
 
@@ -17,6 +18,7 @@ import Cases from '~/components/Cases/Cases.vue';
 import Clients from '~/components/Clients/Clients.vue';
 import Competencies from '~/components/Competencies/Competencies.vue';
 import Jobs from '~/components/Jobs/Jobs.vue';
+import Contact from '~/components/Contact/Contact.vue';
 
 export default {
   components: {
@@ -25,7 +27,8 @@ export default {
     Competencies,
     Cases,
     Clients,
-    Jobs
+    Jobs,
+    Contact
   },
   asyncData ({params}) {
     return Promise.all([
@@ -52,8 +55,12 @@ export default {
       client.getEntries({
         // get people
         content_type: 'job'
+      }),
+      client.getEntries({
+        // get contact
+        content_type: 'contactPage'
       })
-    ]).then(([claim, competencies, cases, clients, team, jobs]) => {
+    ]).then(([claim, competencies, cases, clients, team, jobs, contact]) => {
       // return data that should be available
       // in the template
       return {
@@ -62,7 +69,8 @@ export default {
         cases: cases.items,
         clients: clients.items,
         team: team.items,
-        jobs: jobs.items
+        jobs: jobs.items,
+        contact: contact.items[0]
       }
     }).catch(console.error)
   },

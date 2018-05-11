@@ -1,0 +1,16 @@
+@import '../../assets/css/global';
+$c: 'Person';
+
+.#{$c} {
+  height: 100vh;
+  width: 75vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  will-change: width;
+  transition: width .2s $s-default-easing;
+
+  &.open {
+    width: 100vw;
+  }
+}
+

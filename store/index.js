@@ -4,7 +4,10 @@ export const state = () => ({
     isMobile: true,
     windowHeight: 0,
     windowWidth: 0,
-    logoColor: 'white'
+    logoColor: 'white',
+    teamWidth: 0,
+    personWidth: 0,
+    teamOffset: 0
 })
 
 export const mutations = {
@@ -16,5 +19,16 @@ export const mutations = {
     },
     setMobile(state, data) {
       state.isMobile = data
+    },
+    setTeamWidth(state, data) {
+      state.teamWidth = data
+    },
+    setTeamOffset(state, data) {
+      console.log('set team offset', data)
+      state.teamOffset = data
+    },
+    setPersonWidth(state, data) {
+      console.log('set person width', data)
+      state.personWidth = data
     }
 }

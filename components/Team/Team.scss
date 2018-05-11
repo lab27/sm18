@@ -1,0 +1,12 @@
+@import '../../assets/css/global';
+$c: 'Team';
+.#{$c} {
+  position: relative;
+  left: 0;
+  display: flex;
+  max-height: 100vh;
+  overflow: hidden;
+  will-change: left;
+  transition: left .5s $s-default-easing ;
+}
+

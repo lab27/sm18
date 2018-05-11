@@ -1,5 +1,5 @@
 require('dotenv').config()
-
+const client = require('./plugins/contentful')
 module.exports = {
   /*
   ** Headers of the page
@@ -77,5 +77,17 @@ module.exports = {
     '~plugins/marked',
     { src: '~plugins/ga.js', ssr: false }
   ],
-  modules: ['@nuxtjs/dotenv']
+  modules: ['@nuxtjs/dotenv'],
+  generate: {
+    routes() {
+      return client.getEntries({ content_type: 'job' }).then(entries => {
+        return entries.items.map(entry => {
+          return {
+            route: entry.fields.slug,
+            payload: entry
+          }
+        })
+      })
+    }
+  }
 }

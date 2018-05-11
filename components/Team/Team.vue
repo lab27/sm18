@@ -1,7 +1,7 @@
 <template lang="pug">
-    section#team.Team(ref="team" :style="{ width: teamWidth, left: teamOffset + 'vw' }")
-      Person(v-for="person, index in team" :key="person.id" :person="person" :index="index")
-
+    section#team.Team(ref="team")
+      div.Team__wrap(:style="{ width: teamWidth }")
+        Person(v-for="person, index in team" :key="person.id" :person="person" :index="index")
 </template>
 
 <script>
@@ -26,7 +26,7 @@ export default {
   },
   watch: {
     teamOffset() {
-      this.$refs.team.scrollLeft = this.teamOffset + 'px'
+      // this.$refs.team.scrollLeft = this.teamOffset + 'px'
     }
   }
 }

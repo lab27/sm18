@@ -1,6 +1,8 @@
 <template lang="pug">
   main
+    BGVid
     Splash(:claim="claim")
+    SMLogo
     Competencies(:competencies="competencies")
     Team(:team="team")
     //- Cases(:cases="cases")
@@ -19,6 +21,8 @@ import Clients from '~/components/Clients/Clients.vue';
 import Competencies from '~/components/Competencies/Competencies.vue';
 import Jobs from '~/components/Jobs/Jobs.vue';
 import Contact from '~/components/Contact/Contact.vue';
+import BGVid from '~/components/BGVid/BGVid.vue';
+import SMLogo from '~/components/SMLogo/SMLogo.vue';
 
 export default {
   components: {
@@ -28,7 +32,9 @@ export default {
     Cases,
     Clients,
     Jobs,
-    Contact
+    Contact,
+    BGVid,
+    SMLogo
   },
   asyncData ({params}) {
     return Promise.all([
@@ -77,5 +83,27 @@ export default {
   head: {
     title: 'Latest Posts',
   },
-};
+  methods: {
+    handleWindowResize() {
+      this.$store.commit('setWindowWidth', window.innerWidth)
+      this.$store.commit('setWindowHeight', window.innerHeight)
+      if (window.innerWidth >= window.innerHeight) {
+        this.$store.commit('setMobile', false)
+      } else {
+        this.$store.commit('setMobile', true)
+      }
+    }
+  },
+  beforeMount() {
+  },
+  mounted() {
+    // set Mobile or not before app mounts
+    this.handleWindowResize()
+    // bind the resize event
+    let that = this
+    window.addEventListener('resize', function(e) {
+      that.handleWindowResize()
+    })
+  }
+}
 </script>

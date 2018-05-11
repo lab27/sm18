@@ -2,11 +2,11 @@
   .container
     CloseButton(:link="'/#clients'")
     .client-body
-      //- p(v-if="company") {{company}}
-      p(v-for="thing in cases") 
-        span {{thing.fields.client.fields.slug}}
+      p(v-for="thing in cases")
+        //- span {{thing.fields.client.fields.slug}}
+        span {{thing}}
         p ***********************
-      //- div(v-html="marked(client.fields.body)") 
+      //- div(v-html="marked(client.fields.body)")
 </template>
 
 <script>

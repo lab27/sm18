@@ -10,7 +10,6 @@ export default {
   props: ['person', 'index'],
   data() {
     return {
-      isOpen: false,
       widthMultiplier: 75
     }
   },
@@ -20,23 +19,22 @@ export default {
     },
     myOffset() {
       return -(this.widthMultiplier * this.index)
+    },
+    isOpen() {
+      return this.$store.state.openPerson === this.index
     }
   },
   methods: {
     togglePersonOpen() {
-      console.log('i click you open betch', this.myOffset);
-      console.log('my index', this.index);
-      console.log('my width', this.teamWidth);
-      console.log('mscroll', window.pageXOffset);
       const viewWidth = window.innerWidth / 4 * 3
-      console.log('HWAT', this.index * viewWidth,)
       this.$parent.$refs.team.scroll({
         top: 0,
         left: this.index * viewWidth,
         behavior: 'smooth'
       })
       this.$store.commit('setTeamOffset', this.myOffset)
-      this.isOpen = !this.isOpen
+      this.$store.commit('setOpenPerson', this.isOpen ? undefined : this.index)
+      // this.isOpen = !this.isOpen
     }
   }
 }

@@ -7,7 +7,8 @@ export const state = () => ({
     logoColor: 'white',
     teamWidth: 0,
     personWidth: 0,
-    teamOffset: 0
+    teamOffset: 0,
+    openPerson: null
 })
 
 export const mutations = {
@@ -24,11 +25,12 @@ export const mutations = {
       state.teamWidth = data
     },
     setTeamOffset(state, data) {
-      console.log('set team offset', data)
       state.teamOffset = data
     },
     setPersonWidth(state, data) {
-      console.log('set person width', data)
       state.personWidth = data
+    },
+    setOpenPerson(state, data) {
+      state.openPerson = data
     }
 }

@@ -1,8 +1,12 @@
 <template lang="pug">
   .Person(ref="person" style="background-image: url(img/portraits/mauri.jpg)" @click="togglePersonOpen" :class="{ open: isOpen }")
-    h2 {{person.fields.name}}
-    p(v-if="isOpen")  {{person.fields.title}}
-    p(v-if="isOpen")  {{person.fields.shortBio}}
+    h2.Person__name
+      span.Person__first-name {{person.fields.firstName}}
+      br
+      span.Person__last-name {{person.fields.lastName}}
+    .Person__info
+      p(v-if="isOpen")  {{person.fields.title}}
+      p(v-if="isOpen")  {{person.fields.shortBio}}
 </template>
 
 <script>

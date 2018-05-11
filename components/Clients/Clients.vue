@@ -1,9 +1,10 @@
 <template lang="pug">
-    section#clients
-      h3 SiR MaRY arbeitet für die
-        nuxt-link(:to="'clients/' + item.fields.clientReference.fields.slug" v-for="item, index in clients" v-if="item.fields.clientReference" :key="index")
-          span.clientName {{item.fields.clientReference.fields.title}},
-        span etc.
+    section#clients.Clients
+      h3.Clients__heading SiR MaRY arbeitet für die
+      .Clients__group
+        h3
+          nuxt-link(:to="'clients/' + item.fields.clientReference.fields.slug" v-for="item, index in clients" v-if="item.fields.clientReference" :key="index")
+            span.Clients__clientName {{item.fields.clientReference.fields.title}}
 
 </template>
 
@@ -19,3 +20,4 @@ export default {
 }
 </script>
 
+<style src="./Clients.scss" lang="scss"></style>

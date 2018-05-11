@@ -1,0 +1,35 @@
+@import '../../assets/css/global';
+$c: 'Clients';
+
+.#{$c} {
+  padding: 4rem;
+  padding-bottom: 12vh;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-end;
+
+  &__group {
+    max-width: 30rem;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  &__heading {
+    color: white;
+    margin-bottom: 2rem;
+    margin-left:4rem;
+  }
+
+  &__clientName {
+    color: white;
+    background: #000;
+    margin-right: .5rem;
+    margin-bottom: .5rem;
+    padding: .25rem;
+    display: inline-block;
+
+  }
+
+}

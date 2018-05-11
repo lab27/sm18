@@ -1,5 +1,5 @@
 <template lang="pug">
-    section#team.Team(ref="team" :style="{ width: teamWidth }")
+    section#team.Team(ref="team" :style="{ width: teamWidth, left: teamOffset + 'vw' }")
       Person(v-for="person, index in team" :key="person.id" :person="person" :index="index")
 
 </template>

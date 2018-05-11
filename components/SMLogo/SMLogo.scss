@@ -3,7 +3,7 @@ $c: 'SMLogo';
 
 .#{$c} {
   position: fixed;
-
+  z-index: -1;
   top: 2rem;
   right: -1rem;
   width: 50vw;

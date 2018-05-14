@@ -74,6 +74,9 @@ module.exports = {
   plugins: [
     '~plugins/contentful',
     '~plugins/marked',
+    { src: '~plugins/scroll', ssr: false },
+    { src: '~plugins/waypoint', ssr: false },
+    { src: '~plugins/touch', ssr: false },
     { src: '~plugins/ga.js', ssr: false }
   ],
   modules: ['@nuxtjs/dotenv'],

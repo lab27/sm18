@@ -58,7 +58,7 @@ export default {
       if (self.$store.state.openPerson && !self.openend) {
         setTimeout(function () {
           self.openend = true
-        }, 1000);
+        }, 800);
       }
 
       if (self.openend) {

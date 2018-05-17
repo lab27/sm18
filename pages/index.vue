@@ -3,7 +3,7 @@
     BGVid
     SMLogo
     NoSSR
-      full-page
+      full-page(:options="options")
         Splash.Page__section.section(:claim="claim")
         Competencies.Page__section.section(:competencies="competencies")
         Team.Page__section.section(:team="team")
@@ -39,6 +39,13 @@ export default {
     Contact,
     BGVid,
     SMLogo
+  },
+  data () {
+    return {
+      options: {
+        touchSensitivity: 35
+      }
+    }
   },
   asyncData ({params}) {
     return Promise.all([

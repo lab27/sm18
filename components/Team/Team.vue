@@ -55,7 +55,6 @@ export default {
   },
   methods: {
     scroll (event) {
-      console.log('scroll', event)
       this.$refs.team.scrollLeft = this.$refs.team.scrollLeft - (event.dx)
       this.scrollLength = event.clientX
     },

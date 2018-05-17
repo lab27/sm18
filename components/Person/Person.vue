@@ -5,8 +5,8 @@
       br
       span.Person__last-name {{person.fields.lastName}}
     .Person__info
-      p(v-if="isOpen")  {{person.fields.title}}
-      p(v-if="isOpen")  {{person.fields.shortBio}}
+      .title(v-if="isOpen")  {{person.fields.title}}
+      .bio(v-if="isOpen")  {{person.fields.shortBio}}
 </template>
 
 <script>
@@ -50,9 +50,9 @@ export default {
     }
   },
   mounted() {
-    console.log('------------------------------------');
-    console.log('image path', this.person.fields.portraitLarge.fields.file.url);
-    console.log('------------------------------------');
+    // console.log('------------------------------------');
+    // console.log('image path', this.person.fields.portraitLarge.fields.file.url);
+    // console.log('------------------------------------');
   }
 }
 </script>

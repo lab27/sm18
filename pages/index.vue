@@ -3,13 +3,13 @@
     BGVid
     SMLogo
     full-page
-      Splash.Page__section(:claim="claim")
-      Competencies.Page__section(:competencies="competencies")
-      Team.Page__section(:team="team")
+      Splash.Page__section.section(:claim="claim")
+      Competencies.Page__section.section(:competencies="competencies")
+      Team.Page__section.section(:team="team")
       //- Cases(:cases="cases")
-      Clients.Page__section(:clients="clients")
-      Jobs.Page__section(:jobs="jobs")
-      Contact.Page__section(:contact="contact")
+      Clients.Page__section.section(:clients="clients")
+      Jobs.Page__section.section(:jobs="jobs")
+      Contact.Page__section.section(:contact="contact")
 </template>
 
 

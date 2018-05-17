@@ -79,10 +79,10 @@ module.exports = {
   modules: ['@nuxtjs/dotenv'],
   generate: {
     routes() {
-      return client.getEntries({ content_type: 'job' }).then(entries => {
+      return client.getEntries({ content_type: 'showcaseClient' }).then(entries => {
         return entries.items.map(entry => {
           return {
-            route: entry.fields.slug,
+            route: '/clients/' + entry.fields.clientReference.fields.slug,
             payload: entry
           }
         })

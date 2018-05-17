@@ -2,8 +2,8 @@
   section.Client
     nuxt-link(to="/#clients").Client__back Back
     .Client__column.Client__logo-container
-      img.Client__logo(:src="client.fields.icon.fields.file.url")
-    .Client__column(v-for="thing in cases" :style="{ backgroundImage: 'url(' + thing.fields.heroImage.fields.file.url + ')'}")
+      //- img.Client__logo(:src="client.fields.icon.fields.file.url")
+    //- .Client__column(v-for="thing in cases" :style="{ backgroundImage: 'url(' + thing.fields.heroImage.fields.file.url + ')'}")
 </template>
 
 <script>
@@ -36,7 +36,7 @@ export default {
 
   head() {
     return {
-      title: this.client.fields.title
+      // title: this.client.fields.title
     };
   },
 };

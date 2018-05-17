@@ -1,18 +1,20 @@
 <template lang="pug">
   main
     BGVid
-    Splash(:claim="claim")
     SMLogo
-    Competencies(:competencies="competencies")
-    Team(:team="team")
-    //- Cases(:cases="cases")
-    Clients(:clients="clients")
-    Jobs(:jobs="jobs")
-    Contact(:contact="contact")
+    full-page
+      Splash.Page__section(:claim="claim")
+      Competencies.Page__section(:competencies="competencies")
+      Team.Page__section(:team="team")
+      //- Cases(:cases="cases")
+      Clients.Page__section(:clients="clients")
+      Jobs.Page__section(:jobs="jobs")
+      Contact.Page__section(:contact="contact")
 </template>
 
 
 <script>
+import Vue from 'vue';
 import client from '~/plugins/contentful';
 import Splash from '~/components/Splash/Splash.vue';
 import Team from '~/components/Team/Team.vue';
@@ -23,9 +25,22 @@ import Jobs from '~/components/Jobs/Jobs.vue';
 import Contact from '~/components/Contact/Contact.vue';
 import BGVid from '~/components/BGVid/BGVid.vue';
 import SMLogo from '~/components/SMLogo/SMLogo.vue';
+import NoSSR from 'vue-no-ssr';
+import fullpageMixin from 'vue-fullpage.js/dist/mixin.min';
+
+if (process.browser) {
+  window.$ = require('jquery');
+  require('fullpage.js');
+  require('fullpage.js/dist/jquery.fullpage.js');
+  require('fullpage.js/dist/jquery.fullpage.css');
+  const FullPage = require('vue-fullpage.js');
+  Vue.component('full-page', FullPage.default);
+}
 
 export default {
+  mixins: [fullpageMixin],
   components: {
+    NoSSR,
     Team,
     Splash,
     Competencies,

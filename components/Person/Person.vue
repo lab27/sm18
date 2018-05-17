@@ -1,5 +1,5 @@
 <template lang="pug">
-  .Person(ref="person" style="background-image: url(img/portraits/mauri.jpg)" @click="togglePersonOpen" :class="{ open: isOpen }")
+  .Person(ref="person" :style="`background-image: url(${personImage}?q=30)`" @click="togglePersonOpen" :class="{ open: isOpen }")
     h2.Person__name
       span.Person__first-name {{person.fields.firstName}}
       br
@@ -29,6 +29,9 @@ export default {
     },
     userIsDragging() {
       return this.$store.state.userIsDragging
+    },
+    personImage() {
+      return this.person.fields.portraitLarge ? this.person.fields.portraitLarge.fields.file.url : 'img/empty.jpg'
     }
   },
   methods: {
@@ -45,6 +48,11 @@ export default {
         // this.isOpen = !this.isOpen
       }
     }
+  },
+  mounted() {
+    console.log('------------------------------------');
+    console.log('image path', this.person.fields.portraitLarge.fields.file.url);
+    console.log('------------------------------------');
   }
 }
 </script>

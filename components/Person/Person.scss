@@ -6,6 +6,7 @@ $c: 'Person';
   width: 75vw;
   background-size: cover;
   background-repeat: no-repeat;
+  background-color: white;
   will-change: width;
   transition: width .2s $s-default-easing;
   flex-grow: 1;

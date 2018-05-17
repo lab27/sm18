@@ -1,6 +1,6 @@
 <template lang="pug">
-    section#team.Team
-      div.Team__scroll-wrap(ref="team")
+    section.Team
+      div#team.Team__scroll-wrap(ref="team")
         div.Team__wrap(:style="{ width: teamWidth }")
           Person(v-for="person, index in team" :key="person.id" :person="person" :index="index")
 </template>
@@ -55,6 +55,7 @@ export default {
   },
   methods: {
     scroll (event) {
+      if ((event.dx > 10 || event.dx < -10))
       this.$refs.team.scrollLeft = this.$refs.team.scrollLeft - (event.dx)
       this.scrollLength = event.clientX
     },

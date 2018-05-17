@@ -1,5 +1,5 @@
 <template lang="pug">
-  .Person(ref="person" :style="`background-image: url(${personImage}?q=30)`" :class="[{ open: isOpen }, '' + index + '']")
+  .Person(ref="person" :style="`background-image: url(${personImage}?q=30)`" :class="['Person--' + '' + index + '', '' + index + '', { open: isOpen }]")
     h2.Person__name
       span.Person__first-name {{person.fields.firstName}}
       br
@@ -16,7 +16,8 @@ export default {
   props: ['person', 'index'],
   data() {
     return {
-      widthMultiplier: 75
+      widthMultiplier: 75,
+      opened: false
     }
   },
   computed: {
@@ -38,15 +39,17 @@ export default {
   },
   methods: {
     togglePersonOpen(number) {
+      // console.log('opent', this.isOpen);
+      const self = this;
       if(!this.userIsDragging) {
         const viewWidth = window.innerWidth / 4 * 3
         this.$parent.$refs.team.scroll({
           top: 0,
-          left: number * viewWidth,
+          left: (number ? number : this.index) * viewWidth,
           behavior: 'smooth'
         })
         this.$store.commit('setTeamOffset', this.myOffset)
-        this.$store.commit('setOpenPerson', this.isOpen ? undefined : number)
+        this.$store.commit('setOpenPerson', this.isOpen ? false : number)
         // this.isOpen = !this.isOpen
       }
     }
@@ -54,10 +57,11 @@ export default {
   mounted() {
     var movable = document.querySelector('#team');
     var self = this;
-    interact('.Person').on('tap', function (event) {
+    const classToLook = '.Person--' + this.index
+    interact(classToLook).on('tap', function (event) {
       // this hack makes IOS work? :/
-      console.log(event.currentTarget.classList[1]);
-      self.togglePersonOpen(parseInt(event.currentTarget.classList[1]))
+      console.log(event.currentTarget.classList[2]);
+      self.togglePersonOpen(parseInt(event.currentTarget.classList[2]))
     })
     // console.log('------------------------------------');
     // console.log('image path', this.person.fields.portraitLarge.fields.file.url);

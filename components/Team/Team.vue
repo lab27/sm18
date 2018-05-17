@@ -24,7 +24,8 @@ export default {
   },
   data () {
     return {
-      scrollLength: 0
+      scrollLength: 0,
+      openend: false
     }
   },
   beforeMount() {
@@ -52,6 +53,19 @@ export default {
         }, 500);
       }
     })
+
+    movable.onscroll = function (e) {
+      if (self.$store.state.openPerson && !self.openend) {
+        setTimeout(function () {
+          self.openend = true
+        }, 1000);
+      }
+
+      if (self.openend) {
+        self.openend = false
+        self.$store.commit('setOpenPerson', false)
+      }
+    }
   },
   methods: {
     scroll (event) {

@@ -8,7 +8,7 @@
       Team.Page__section.section(:team="team")
       //- Cases(:cases="cases")
       Clients.Page__section.section(:clients="clients")
-      Jobs.Page__section.section(:jobs="jobs")
+      //- Jobs.Page__section.section(:jobs="jobs")
       Contact.Page__section.section(:contact="contact")
 </template>
 

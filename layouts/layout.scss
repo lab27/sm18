@@ -24,8 +24,16 @@ $p: 'Page';
 }
 
 .#{$p} {
-    padding-bottom: px-to-rem($s-size-spacer-medium);
-    @include mq($from: medium) {
-        padding-bottom: px-to-rem($s-size-spacer-increased);
-    }
+  padding-bottom: px-to-rem($s-size-spacer-medium);
+  @include mq($from: medium) {
+    padding-bottom: px-to-rem($s-size-spacer-increased);
+  }
+
+  &__section {
+    // height: 100%;
+    // min-height: 100vh;
+    z-index: 10;
+    display: flex;
+    flex-flow: column wrap;
+  }
 }

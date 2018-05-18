@@ -1,5 +1,5 @@
 <template lang="pug">
-  .Person(ref="person" :style="`background-image: url(${personImage}?q=30)`" class="slide" :class="['Person--' + '' + index + '', '' + index + '', { open: opened }]")
+  .Person(ref="person" :style="`background-image: url(${personImage}?q=30)`" @click="togglePersonOpen" :class="{slide: isMobile }")
     h2.Person__name
       span.Person__first-name {{person.fields.firstName}}
       br
@@ -10,7 +10,6 @@
 </template>
 
 <script>
-const interact = require('interactjs');
 
 export default {
   props: ['person', 'index'],
@@ -45,38 +44,25 @@ export default {
       if (this.isMobile) {
         // in mobile mode
         console.log('i am a mobile person', this.$refs.person);
-        this.opened = !this.opened
-
+        $(this.$refs.person).toggleClass('open')
       } else {
-
-        // console.log('opent', this.isOpen);
         const self = this;
         if(!this.userIsDragging) {
           const viewWidth = window.innerWidth / 4 * 3
+          $('.Person').removeClass('open')
+            if(!this.isOpen) {
+              $(this.$refs.person).addClass('open')
+            }
           this.$parent.$refs.team.scroll({
             top: 0,
-            left: (number ? number : this.index) * viewWidth,
+            left: this.index * viewWidth,
             behavior: 'smooth'
           })
           this.$store.commit('setTeamOffset', this.myOffset)
-          this.$store.commit('setOpenPerson', this.isOpen ? false : number)
-          // this.isOpen = !this.isOpen
+          this.$store.commit('setOpenPerson', this.isOpen ? false : this.index)
         }
       }
     }
-  },
-  mounted() {
-    var movable = document.querySelector('#team');
-    var self = this;
-    const classToLook = '.Person--' + this.index
-    interact(classToLook).on('tap', function (event) {
-      // this hack makes IOS work? :/
-      console.log(event.currentTarget.classList[2]);
-      self.togglePersonOpen(parseInt(event.currentTarget.classList[2]))
-    })
-    console.log('------------------------------------');
-    console.log('my width syle', this.$refs.person.style.width);
-    console.log('------------------------------------');
   }
 }
 </script>

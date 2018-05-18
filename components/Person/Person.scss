@@ -19,6 +19,11 @@ $c: 'Person';
     left: 2rem;
   }
 
+  &.open {
+    width: 100vw;
+  }
+
+
   span {
     color: white;
     background: #000;

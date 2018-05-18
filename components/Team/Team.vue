@@ -7,6 +7,7 @@
 
 <script>
 import Person from '~/components/Person/Person'
+// import { TweenMax } from 'gsap'
 const interact = require('interactjs');
 export default {
   name: 'Team',
@@ -37,20 +38,21 @@ export default {
     const self = this;
     interact(movable)
     .draggable({
-      inertia: true,
       restrict: {
-        restriction: "parent",
+        restriction: parent,
         endOnly: true
       },
-      autoScroll: true,
+      inertia: {
+        smoothEndDuration: 0
+      },
       onmove: function (event) {
         self.userStartsDragging()
         self.scroll(event)
       },
       onend: function (event) {
-        self.$nextTick(() => {
+        setTimeout(function () {
           self.userEndsDragging()
-        })
+        }, 100)
       }
     })
     // might want this later!
@@ -70,9 +72,25 @@ export default {
   },
   methods: {
     scroll (event) {
-      if ((event.dx > 10 || event.dx < -10))
-      this.$refs.team.scrollLeft = this.$refs.team.scrollLeft - (event.dx)
-      this.scrollLength = event.clientX
+      if ((event.dx > 10 || event.dx < -10)) {
+        this.$refs.team.scrollLeft = this.$refs.team.scrollLeft - (event.dx)
+        this.scrollLength = event.clientX
+
+        // var coords = { x: this.$refs.team.scrollLeft }; // Start at (0, 0)
+        // var tween = new TWEEN.Tween(coords)
+        //   .to({ x: this.$refs.team.scrollLeft - (event.dx) }, 1000) // Move to (300, 200) in 1 second.
+        //   .onUpdate(function() {
+        //     this.$refs.team.scrollLeft = cords.x
+        //   })
+        //   .start();
+        //
+        // requestAnimationFrame(animate);
+        //
+        // var animate = function (time) {
+        //   requestAnimationFrame(animate);
+        //   TWEEN.update(time);
+        // }
+      }
     },
     checkDirection () {
       if (event.clientX > this.scrollLength) {

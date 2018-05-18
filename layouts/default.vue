@@ -24,15 +24,25 @@
 
   export default {
     mixins: [fullpageMixin],
-    head () {
-      return {
-        titleTemplate: '%s - SiR MaRy!'
+    watch: {
+      '$route': function () {
+        this.removeMultipleFullpageInstance()
       }
     },
     beforeMount() {
-      if($('html').hasClass('fp-enabled')){
+      this.removeMultipleFullpageInstance()
+    },
+    methods: {
+      removeMultipleFullpageInstance () {
+        if($('html').hasClass('fp-enabled')){
           $.fn.fullpage.destroy('all');
           $.fn.fullpage.setResponsive(true);
+        }
+      }
+    },
+    head () {
+      return {
+        titleTemplate: '%s - SiR MaRy!'
       }
     }
   }

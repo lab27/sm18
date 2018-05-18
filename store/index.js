@@ -9,7 +9,8 @@ export const state = () => ({
     personWidth: 0,
     teamOffset: 0,
     openPerson: null,
-    userIsDragging: false
+    userIsDragging: false,
+    currentOpenedCase: {}
 })
 
 export const mutations = {
@@ -36,5 +37,9 @@ export const mutations = {
   },
   setUserDragging(state, data) {
     state.userIsDragging = data
+  },
+  setCurrentOpenedCase(state, data) {
+    console.log('set', data);
+    state.currentOpenedCase = data
   }
 }

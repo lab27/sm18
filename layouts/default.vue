@@ -29,7 +29,11 @@
         titleTemplate: '%s - SiR MaRy!'
       }
     },
-    mounted () {
+    beforeMount() {
+      if($('html').hasClass('fp-enabled')){
+          $.fn.fullpage.destroy('all');
+          $.fn.fullpage.setResponsive(true);
+      }
     }
   }
 </script>

@@ -2,12 +2,12 @@
     section.Team
       div#team.Team__scroll-wrap(ref="team")
         div.Team__wrap(:style="{ width: teamWidth }")
-          Person(v-for="person, index in team" :key="person.id" :person="person" :index="index")
+          Person(v-for="person, index in team" :key="person.id" :person="person" :index="index").slide
 </template>
 
 <script>
 import Person from '~/components/Person/Person'
-const interact = require('interactjs');
+// const interact = require('interactjs');
 export default {
   name: 'Team',
   props: ['team'],
@@ -33,39 +33,39 @@ export default {
     this.$store.commit('setTeamWidth', teamWidth)
   },
   mounted () {
-    var movable = document.querySelector('#team');
-    const self = this;
-    interact(movable)
-    .draggable({
-      inertia: true,
-      restrict: {
-        restriction: "parent",
-        endOnly: true
-      },
-      autoScroll: true,
-      onmove: function (event) {
-        self.userStartsDragging()
-        self.scroll(event)
-      },
-      onend: function (event) {
-        setTimeout(function () {
-          self.userEndsDragging()
-        }, 500);
-      }
-    })
+    // var movable = document.querySelector('#team');
+    // const self = this;
+    // interact(movable)
+    // .draggable({
+    //   inertia: true,
+    //   restrict: {
+    //     restriction: "parent",
+    //     endOnly: true
+    //   },
+    //   autoScroll: true,
+    //   onmove: function (event) {
+    //     self.userStartsDragging()
+    //     self.scroll(event)
+    //   },
+    //   onend: function (event) {
+    //     setTimeout(function () {
+    //       self.userEndsDragging()
+    //     }, 500);
+    //   }
+    // })
 
-    movable.onscroll = function (e) {
-      if (self.$store.state.openPerson && !self.openend) {
-        setTimeout(function () {
-          self.openend = true
-        }, 800);
-      }
+    // movable.onscroll = function (e) {
+    //   if (self.$store.state.openPerson && !self.openend) {
+    //     setTimeout(function () {
+    //       self.openend = true
+    //     }, 800);
+    //   }
 
-      if (self.openend) {
-        self.openend = false
-        self.$store.commit('setOpenPerson', false)
-      }
-    }
+    //   if (self.openend) {
+    //     self.openend = false
+    //     self.$store.commit('setOpenPerson', false)
+    //   }
+    // }
   },
   methods: {
     scroll (event) {

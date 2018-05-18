@@ -6,10 +6,9 @@
       full-page(:options="options")
         Splash.Page__section.section(:claim="claim")
         Competencies.Page__section.section(:competencies="competencies")
-        Team.Page__section.section(:team="team")
-        //- Cases(:cases="cases")
+        Team.Page__section.section(:team="team" v-if="!isMobile")
+        TeamMobile.Page__section.section(:team="team" v-if="isMobile")
         Clients.Page__section.section(:clients="clients")
-        //- Jobs.Page__section.section(:jobs="jobs")
         Contact.Page__section.section(:contact="contact")
 </template>
 
@@ -18,6 +17,7 @@
 import client from '~/plugins/contentful';
 import Splash from '~/components/Splash/Splash.vue';
 import Team from '~/components/Team/Team.vue';
+import TeamMobile from '~/components/Team/TeamMobile.vue';
 import Cases from '~/components/Cases/Cases.vue';
 import Clients from '~/components/Clients/Clients.vue';
 import Competencies from '~/components/Competencies/Competencies.vue';
@@ -31,6 +31,7 @@ export default {
   components: {
     NoSSR,
     Team,
+    TeamMobile,
     Splash,
     Competencies,
     Cases,
@@ -43,7 +44,8 @@ export default {
   data () {
     return {
       options: {
-        touchSensitivity: 35
+        touchSensitivity: 15,
+        controlArrows: false
       }
     }
   },
@@ -91,6 +93,11 @@ export default {
       }
     }).catch(console.error)
   },
+  computed: {
+    isMobile() {
+      return this.$store.state.isMobile
+    }
+  },
   head: {
     // title: 'Latest Posts',
   },
@@ -103,14 +110,15 @@ export default {
       } else {
         this.$store.commit('setMobile', true)
       }
-    }
-  },
-  beforeMount() {
-    if($('html').hasClass('fp-enabled')){
-        $.fn.fullpage.destroy('all');
+    },
+    handleSectionLoad() {
+      console.log('------------------------------------');
+      console.log('section loaded');
+      console.log('------------------------------------');
     }
   },
   mounted() {
+    // try make it responsive
     // set Mobile or not before app mounts
     this.handleWindowResize()
     // bind the resize event

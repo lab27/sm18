@@ -1,5 +1,5 @@
 <template lang="pug">
-  .Person(ref="person" :style="`background-image: url(${personImage}?q=30)`" :class="['Person--' + '' + index + '', '' + index + '', { open: isOpen }]")
+  .Person(ref="person" :style="`background-image: url(${personImage}?q=30)`" class="slide" :class="['Person--' + '' + index + '', '' + index + '', { open: opened }]")
     h2.Person__name
       span.Person__first-name {{person.fields.firstName}}
       br
@@ -35,22 +35,33 @@ export default {
     },
     personImage() {
       return this.person.fields.portraitLarge ? this.person.fields.portraitLarge.fields.file.url : 'img/empty.jpg'
+    },
+    isMobile() {
+      return this.$store.state.isMobile
     }
   },
   methods: {
     togglePersonOpen(number) {
-      // console.log('opent', this.isOpen);
-      const self = this;
-      if(!this.userIsDragging) {
-        const viewWidth = window.innerWidth / 4 * 3
-        this.$parent.$refs.team.scroll({
-          top: 0,
-          left: (number ? number : this.index) * viewWidth,
-          behavior: 'smooth'
-        })
-        this.$store.commit('setTeamOffset', this.myOffset)
-        this.$store.commit('setOpenPerson', this.isOpen ? false : number)
-        // this.isOpen = !this.isOpen
+      if (this.isMobile) {
+        // in mobile mode
+        console.log('i am a mobile person', this.$refs.person);
+        this.opened = !this.opened
+
+      } else {
+
+        // console.log('opent', this.isOpen);
+        const self = this;
+        if(!this.userIsDragging) {
+          const viewWidth = window.innerWidth / 4 * 3
+          this.$parent.$refs.team.scroll({
+            top: 0,
+            left: (number ? number : this.index) * viewWidth,
+            behavior: 'smooth'
+          })
+          this.$store.commit('setTeamOffset', this.myOffset)
+          this.$store.commit('setOpenPerson', this.isOpen ? false : number)
+          // this.isOpen = !this.isOpen
+        }
       }
     }
   },
@@ -63,9 +74,9 @@ export default {
       console.log(event.currentTarget.classList[2]);
       self.togglePersonOpen(parseInt(event.currentTarget.classList[2]))
     })
-    // console.log('------------------------------------');
-    // console.log('image path', this.person.fields.portraitLarge.fields.file.url);
-    // console.log('------------------------------------');
+    console.log('------------------------------------');
+    console.log('my width syle', this.$refs.person.style.width);
+    console.log('------------------------------------');
   }
 }
 </script>

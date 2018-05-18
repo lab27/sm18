@@ -13,10 +13,6 @@ $c: 'Person';
   flex-shrink: 0;
   position: relative;
 
-  &.open {
-    width: 100vw;
-  }
-
   &__name {
     position: absolute;
     bottom: 4rem;
@@ -42,5 +38,14 @@ $c: 'Person';
     right: 4rem;
     width: 100%;
     max-width: 30rem;
+  }
+
+  &.fp-slide.fp-table {
+    width: 90vw !important;
+
+      &.open {
+        width: 100vw !important;
+      }
+
   }
 }

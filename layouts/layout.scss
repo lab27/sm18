@@ -5,12 +5,22 @@ $p: 'Page';
 
 .page-enter-active,
 .page-leave-active {
-    transition: opacity 0.25s;
+  transition: opacity 0.25s;
 }
 
 .page-enter,
 .page-leave-active {
-    opacity: 0;
+  opacity: 0;
+}
+
+.no-transition-enter-active,
+.no-transition-leave-active {
+  transition: all 0.4s;
+}
+
+.no-transition-enter,
+.no-transition-leave-active {
+  opacity: 1;
 }
 
 .#{$c} {

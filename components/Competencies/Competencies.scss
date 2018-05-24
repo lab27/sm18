@@ -98,8 +98,22 @@ $c: 'competencies';
     padding: .5rem;
     text-align: left;
     transition: all 0.25s;
+    display: inline;
     // white-space: nowrap;
     // overflow: hidden;
     max-width: 100%;
+  }
+
+  &__card-list {
+    color: #000;
+    padding-top: 50px;
+  }
+
+  &__card-list-item {
+    margin-bottom: 15px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }

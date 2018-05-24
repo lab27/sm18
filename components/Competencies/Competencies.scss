@@ -79,8 +79,8 @@ $c: 'competencies';
       .#{$c}__card-title {
         color: white;
         margin-bottom: 50px;
-        white-space: normal;
-        overflow: visible;
+        // white-space: normal;
+        // overflow: visible;
       }
     }
   }
@@ -98,8 +98,8 @@ $c: 'competencies';
     padding: .5rem;
     text-align: left;
     transition: all 0.25s;
-    white-space: nowrap;
-    overflow: hidden;
+    // white-space: nowrap;
+    // overflow: hidden;
     max-width: 100%;
   }
 }

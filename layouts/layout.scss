@@ -23,6 +23,19 @@ $p: 'Page';
   opacity: 1;
 }
 
+.fp-tableCell {
+  padding-left: 5em;
+  padding-right: 5em;
+}
+
+.Team,
+#competencies {
+  .fp-tableCell {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 .#{$c} {
     margin: auto;
     &__content {

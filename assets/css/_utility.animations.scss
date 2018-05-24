@@ -18,11 +18,11 @@
 .u-anim-fade-delayed-enter-active,
 .u-anim-fade-delayed-leave-active {
   transition-duration: 0.3s;
-  transition-property: opacity;
+  transition-property: all;
 }
 
 .u-anim-fade-delayed-enter-active {
-  transition-delay: 0.3s;
+  transition-delay: 0.5s;
 }
 
 .u-anim-fade-delayed-enter,

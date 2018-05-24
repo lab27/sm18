@@ -19,7 +19,6 @@ import CloseButton from '~/components/CloseButton/CloseButton';
 export default {
   // set no-transition if we change route from slug to slug2 to make sure we have no flickering
   transition (to, from) {
-    console.log('from', from, 'to', from);
     if (from && from.params.slug2 && to && to.params.slug2) {
       return 'no-transition'
     } else if (to && to.params.slug && from && from.params.slug) {

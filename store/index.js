@@ -10,12 +10,16 @@ export const state = () => ({
     teamOffset: 0,
     openPerson: null,
     userIsDragging: false,
-    currentOpenedCase: {}
+    currentOpenedCase: {},
+    dataLoading: false
 })
 
 export const mutations = {
   setWindowHeight(state, data) {
     state.windowHeight = data
+  },
+  setDataLoading(state, data) {
+    state.dataLoading = data
   },
   setWindowWidth(state, data) {
     state.windowWidth = data

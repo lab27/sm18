@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nuxt/>
+    <nuxt v-if="!dataLoading"/>
   </div>
 </template>
 
@@ -24,9 +24,16 @@
 
   export default {
     mixins: [fullpageMixin],
+    computed: {
+      dataLoading () {
+        return this.$store.state.dataLoading
+      }
+    },
     watch: {
       '$route': function () {
-        this.removeMultipleFullpageInstance()
+        if (!this.$route.params.slug) {
+          this.removeMultipleFullpageInstance()
+        }
       }
     },
     beforeMount() {

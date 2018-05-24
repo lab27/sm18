@@ -49,7 +49,9 @@ export default {
       }
     }
   },
-  asyncData ({params}) {
+  asyncData ({params, store}) {
+    // store.commit('setDataLoading', true)
+    store.commit('setDataLoading', true)
     return Promise.all([
       client.getEntries({
         content_type: 'claim'
@@ -82,6 +84,7 @@ export default {
     ]).then(([claim, competencies, cases, clients, team, jobs, contact]) => {
       // return data that should be available
       // in the template
+      store.commit('setDataLoading', false)
       return {
         claim: claim.items[0],
         competencies: competencies.items,

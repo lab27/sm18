@@ -10,6 +10,10 @@ $c: 'Splash';
     margin-left: 4rem;
     margin-top: 5rem;
     line-height: 1.4;
+
+    @include mq($from: medium) {
+      font-size: 1.75rem;
+    }
   }
 
   .fp-tableCell {

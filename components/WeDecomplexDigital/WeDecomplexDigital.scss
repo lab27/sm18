@@ -1,6 +1,10 @@
 @import '../../assets/css/global';
 $c: 'wdd';
 .#{$c} {
-  max-width: 30rem;
+  width: 100%;
+
+  @include mq($from: large) {
+    max-width: 30rem;
+  }
 }
 

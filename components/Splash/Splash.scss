@@ -6,7 +6,7 @@ $c: 'Splash';
   &__claim {
     max-width: px-to-rem(245px);
     font-size: px-to-rem(20px);
-    margin-left: px-to-rem(35px);
+    margin-left: px-to-rem(30px);
     margin-top: px-to-rem($s-size-spacer-medium);
     color: white;
     line-height: 1.4;
@@ -20,6 +20,6 @@ $c: 'Splash';
 
   .fp-tableCell {
     vertical-align: bottom;
-    padding-bottom: 25vw;
+    padding-bottom: px-to-rem($s-size-gutter-large);
   }
 }

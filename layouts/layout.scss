@@ -24,8 +24,8 @@ $p: 'Page';
 }
 
 .fp-tableCell {
-  padding-left: px-to-rem(20px);
-  padding-right: px-to-rem(20px);
+  padding-left: px-to-rem(25px);
+  padding-right: px-to-rem(25px);
 
   @include mq($from: medium) {
     padding-left: 5em;
@@ -42,13 +42,13 @@ $p: 'Page';
 }
 
 .#{$c} {
-    margin: auto;
-    &__content {
-        padding-top: px-to-rem($s-size-spacer-small);
-        @include mq($from: medium) {
-            padding-top: px-to-rem($s-size-spacer-medium);
-        }
+  margin: auto;
+  &__content {
+    padding-top: px-to-rem($s-size-spacer-small);
+    @include mq($from: medium) {
+      padding-top: px-to-rem($s-size-spacer-medium);
     }
+  }
 }
 
 .#{$p} {

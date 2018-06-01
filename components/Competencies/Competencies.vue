@@ -1,12 +1,13 @@
 <template lang="pug">
     section#competencies.competencies
       transition(appear name="u-anim-fade-delayed")
-        h2.competencies__heading.expanded(v-if="isExpanded") {{headingExpanded}}
       div.competencies__wrap(:class="{ expanded: isExpanded }")
         transition(name="u-anim-fade-delayed")
           h2.competencies__heading(v-if="!isExpanded") {{headingSimple}}
+          h2.competencies__heading.expanded(v-if="isExpanded") {{headingExpanded}}
         .competencies__cards(:class="{ expanded: isExpanded }")
           .competencies__card-wrap(v-for="area, index in competencies" :key="index" :class="[isExpanded ? 'expanded' : '', isExpanded && clickedCard !== index ? 'hide' : 'full-width']")
+            .competencies__back(v-show="isExpanded" @click="isExpanded ? handleExpand(index) : null") Back
             .competencies__card(@click="handleExpand(index)" :ref="'card-' + index")
               h3.competencies__card-title {{area.fields.title}}
               transition(name="u-anim-fade-delayed")

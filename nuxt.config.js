@@ -12,7 +12,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'SiR MaRY ist eine Kreativagentur, die Marken durch die Komplexität der vernetzten Welt führt.' },
       { 'http-equiv': 'Content-Type', content: 'text/html; charset: utf-8' },
       { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge, chrome=1' },
-      { name: 'viewport', content: 'width: device-width, initial-scale: 1.0, maximum-scale: 1.0, user-scalable: no'  },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1,  maximum-scale= 1'},
       { content: 'True', name: 'HandheldFriendly' },
       { content: '320', name: 'MobileOptimized' },
       { itemprop: 'name', content: 'SiR MaRY – We Decomplex Digital' },

@@ -4,7 +4,7 @@
         h2.competencies__heading.expanded(v-if="isExpanded") {{headingExpanded}}
       div.competencies__wrap(:class="{ expanded: isExpanded }")
         transition(name="u-anim-fade-delayed")
-          h2.competencies__heading(v-if="!isExpanded") {{headingSimple}} {{clickedCard}}
+          h2.competencies__heading(v-if="!isExpanded") {{headingSimple}}
         .competencies__cards(:class="{ expanded: isExpanded }")
           .competencies__card-wrap(v-for="area, index in competencies" :key="index" :class="[isExpanded ? 'expanded' : '', isExpanded && clickedCard !== index ? 'hide' : 'full-width']")
             .competencies__card(@click="handleExpand(index)" :ref="'card-' + index")

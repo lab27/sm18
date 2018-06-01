@@ -5,13 +5,16 @@
       br
       span.Person__last-name {{person.fields.lastName}}
     transition(name="fade")
-      h3.Person__title(v-if="!opened") {{person.fields.title}}
-    .Person__info(v-if="!isMobile && opened")
-      //- .title(v-if="isOpen")  {{person.fields.title}}
-      .bio(v-show="opened")  {{person.fields.shortBio}}
+      h3.Person__title(v-if="!opened || !isMobile") {{person.fields.title}}
+    transition(name="fade")
+      .Person__info(v-show="!isMobile && opened")
+        .Person__bio(v-show="opened" v-html="person.fields.shortBio")
+        .Person__email(v-show="opened")
+          a(:href="'mailto:' + person.fields.email") {{person.fields.email}}
     .Person__info-mobile(v-show="isMobile")
-      .Person__bio {{person.fields.shortBio}}
-      .Person__email {{person.fields.email}}
+      .Person__bio(v-html="person.fields.shortBio")
+      .Person__email
+        a(:href="'mailto:' + person.fields.email") {{person.fields.email}}
       .Person__back-btn Back
 
 </template>

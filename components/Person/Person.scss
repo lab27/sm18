@@ -9,7 +9,7 @@ $c: 'Person';
   background-color: white;
   background-position: 20% center;
   will-change: width;
-  transition: width .2s $s-default-easing;
+  transition: all .2s $s-default-easing;
   flex-grow: 1;
   flex-shrink: 0;
   position: relative;

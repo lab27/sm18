@@ -1,6 +1,6 @@
 <template lang="pug">
   section#contact
-    p {{contact.fields.heading}}
+    HappyToMeet
     p(v-html="marked(contact.fields.address)")
     p
       a(:href="'mailto:' + contact.fields.eMail") {{contact.fields.eMail}}
@@ -12,7 +12,9 @@
 </template>
 
 <script>
+import HappyToMeet from '~/components/HappyToMeet/HappyToMeet'
 export default {
-  props: ['contact']
+  props: ['contact'],
+  components: {'HappyToMeet': HappyToMeet }
 }
 </script>

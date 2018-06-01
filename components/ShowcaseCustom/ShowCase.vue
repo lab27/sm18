@@ -2,6 +2,7 @@
   main.Showcase(v-if="showcase")
     section.Showcase__video(v-if="showcase.heroVideo")
       img.Showcase__hero(v-if="showcase.heroImage" :src="showcase.heroImage.fields.file.url")
+      PlayButton
       .Showcase__title {{showcase.title}}
     section.Showcase__section-info(:style="{ flexDirection: topboxFlexDirection}")
       .Showcase__infobox(v-html="marked(showcase.infobox.fields.content)" :style="{ backgroundColor: showcase.infobox.fields.color }")
@@ -28,6 +29,7 @@ import OneLarge from './OneLarge.vue';
 import ThreeUp from './ThreeUp.vue';
 import SixUp from './SixUp.vue';
 import SmallLarge from './SmallLarge.vue';
+import PlayButton from './PlayButton.vue';
 
 export default {
   components: {
@@ -35,6 +37,7 @@ export default {
     'showcaseSectionSixUp': SixUp,
     'showcaseSectionSmallLarge': SmallLarge,
     'showcaseSectionThreeUp': ThreeUp,
+    'PlayButton': PlayButton,
   },
   props: ['showcase'],
   computed: {

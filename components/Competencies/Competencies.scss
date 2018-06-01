@@ -68,7 +68,7 @@ $c: 'competencies';
     background: transparent;
     margin-bottom: px-to-rem($s-size-gutter-small) * 2;
     width: 100%;
-    transition: height 0.5s, width 0s ease-in-out 0.75s, padding 0.15s ease-in-out 0.25s, background-color 0.25s, margin-bottom 0.3s;
+    transition: height 0.25s, width 0s ease-in-out 0.25s, padding 0.15s ease-in-out 0.25s, background-color 0.25s, margin-bottom 0.3s;
     padding: 0;
     height: px-to-rem(25px);
 
@@ -88,9 +88,9 @@ $c: 'competencies';
       height: 40vh;
       padding: px-to-rem($s-size-spacer-small);
       padding-top: px-to-rem($s-size-spacer-small) + px-to-rem(10px);
-      width: calc(25% -(2 * .1rem));
       // flex:1 0 auto;
-      transition: height 0.5s ease-in-out 0.25s, width 0s ease-in-out, padding 0.25s ease-in-out, background-color 0.25s ease-in-out, margin-bottom 0.25s;
+      transition: height 0.25s ease-in-out 0.25s, width 0s ease-in-out, padding 0.25s ease-in-out, background-color 0.25s ease-in-out, margin-bottom 0.25s;
+      width: calc(25% -(2 * .1rem));
 
       &:first-child {
         // margin-left: 1rem;
@@ -111,10 +111,17 @@ $c: 'competencies';
 
     &.hide {
       display: none;
+      @include mq($from: medium) {
+        display: block;
+      }
     }
 
-    &.full-width {
+    &.full-width.expanded {
       width: 100vw;
+
+      @include mq($from: medium) {
+        width: calc(25% -(2 * .1rem));
+      }
     }
   }
 

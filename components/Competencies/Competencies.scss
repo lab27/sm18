@@ -3,7 +3,7 @@ $c: 'competencies';
 
 .#{$c} {
   position: relative;
-
+  overflow: hidden;
 
   &__cards {
     transform: translateY(-100%);
@@ -45,7 +45,7 @@ $c: 'competencies';
 
   &__heading {
     @include font-style-medium;
-    transform: translateY(-1200%);
+    transform: translateY(-1000%);
     color: white;
     margin-bottom: px-to-rem($s-size-gutter-small) * 2;
     margin-left: px-to-rem($s-size-gutter-small);
@@ -54,6 +54,7 @@ $c: 'competencies';
     transition: all 0.25s ease-in-out;
 
     @include mq($from: medium) {
+      transform: translateY(-1200%);
       margin-left: px-to-rem($s-size-gutter-large);
     }
 

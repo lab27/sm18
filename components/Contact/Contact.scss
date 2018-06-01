@@ -2,11 +2,16 @@
 $c: 'Contact';
 
 .#{$c} {
+  overflow: hidden;
 
   &__title,
   &__claim {
-    transform: translateY(-300%);
+    transform: translateY(-200%);
     transition: all 1s;
+
+    @include mq($from: medium) {
+      transform: translateY(-300%);
+    }
   }
 
   &__wrap {

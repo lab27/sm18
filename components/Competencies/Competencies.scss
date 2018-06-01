@@ -21,7 +21,6 @@ $c: 'competencies';
     position: absolute;
     bottom: 36vw;
     left: px-to-rem(25px);
-    transform: translate(0, 50%);
     width: 80vw;
     transition: all 0.25s ease-in-out 0.25s;
 
@@ -33,6 +32,12 @@ $c: 'competencies';
       width: 100vw;
       transition: all 0.25s;
     }
+
+    @include mq($from: medium) {
+      left: px-to-rem(75px);
+      bottom: 0;
+      margin-bottom: px-to-rem($s-size-gutter-large) * 2;
+    }
   }
 
   &__heading {
@@ -42,6 +47,10 @@ $c: 'competencies';
     margin-left: px-to-rem($s-size-gutter-small);
     // max-width: 100%;
     transition: all 0.25s ease-in-out;
+
+    @include mq($from: medium) {
+      margin-left: px-to-rem($s-size-gutter-large);
+    }
 
     &.expanded {
       // position: absolute;

@@ -13,7 +13,7 @@ $c: 'Splash';
     line-height: 1.4;
 
     @include mq($from: medium) {
-      max-width: 50vw;
+      max-width: px-to-rem(700px);
       margin-top: px-to-rem($s-size-spacer-medium);
       margin-left: px-to-rem($s-size-gutter-large) - px-to-rem(10px);
     }

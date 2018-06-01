@@ -2,14 +2,26 @@
 $c: 'Clients';
 
 .#{$c} {
-  padding: 4rem;
-  padding-bottom: 12vh;
+  // padding: 4rem;
   display: flex;
   flex-flow: column wrap;
   justify-content: flex-end;
 
+
+  &__wrap {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: px-to-rem($s-size-gutter-large);
+    left: px-to-rem(25px);
+
+    @include mq($from: medium) {
+      margin-bottom: px-to-rem($s-size-gutter-large) * 3;
+      left: px-to-rem($s-size-gutter-large);
+    }
+  }
+
   &__group {
-    max-width: 30rem;
+    max-width: 40rem;
 
     a {
       text-decoration: none;
@@ -18,18 +30,23 @@ $c: 'Clients';
 
   &__heading {
     color: white;
-    margin-bottom: 2rem;
-    margin-left:4rem;
+    margin-left: px-to-rem($s-size-gutter-medium);
+    margin-bottom: px-to-rem($s-size-gutter-small);
+
+    @include mq($from: medium) {
+      margin-left: px-to-rem($s-size-gutter-large);
+      margin-bottom: px-to-rem($s-size-gutter-medium);
+    }
   }
 
   &__clientName {
+    @include font-style-medium;
     color: white;
     background: #000;
-    margin-right: .5rem;
-    margin-bottom: .5rem;
-    padding: .25rem;
+    margin-right: px-to-rem($s-size-gutter-small);
+    margin-bottom: px-to-rem($s-size-gutter-small);
+    padding: (px-to-rem($s-size-gutter-small) / 2) px-to-rem($s-size-gutter-small);
     display: inline-block;
-
   }
 
 }

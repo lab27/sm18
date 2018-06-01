@@ -1,14 +1,15 @@
 <template lang="pug">
-  section#contact
-    HappyToMeet
-    p(v-html="marked(contact.fields.address)")
-    p
-      a(:href="'mailto:' + contact.fields.eMail") {{contact.fields.eMail}}
-    p
-      a(:href="'tel:' + contact.fields.telephone") {{contact.fields.telephone}}
+  section#contact.Contact
+    .Contact__wrap
+      HappyToMeet
+      .Contact__claim
+        p(v-html="marked(contact.fields.address)")
+        br
+        p
+          a(:href="'mailto:' + contact.fields.eMail") {{contact.fields.eMail}}
+        p
+          a(:href="'tel:' + contact.fields.telephone") {{contact.fields.telephone}}
 
-    //- h3 {{contact.heading}}
-    //- h3 {{claim.fields.claim}}
 </template>
 
 <script>
@@ -18,3 +19,5 @@ export default {
   components: {'HappyToMeet': HappyToMeet }
 }
 </script>
+
+<style src="./Contact.scss" lang="scss"></style>

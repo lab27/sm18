@@ -1,0 +1,42 @@
+@import '../../assets/css/global';
+$c: 'Contact';
+
+.#{$c} {
+
+  &__wrap {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 10vw;
+    left: px-to-rem(25px);
+
+    @include mq($from: medium) {
+      margin-bottom: 5vw;
+      left: px-to-rem($s-size-gutter-large);
+    }
+  }
+
+  &__claim {
+    @include font-style-medium;
+    max-width: px-to-rem(245px);
+    margin-left: px-to-rem(30px);
+    margin-top: px-to-rem($s-size-spacer-medium);
+    color: white;
+    line-height: 1.4;
+
+    p,
+    a {
+      @include font-style-medium;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+
+    @include mq($from: medium) {
+      max-width: 50vw;
+      margin-top: px-to-rem($s-size-spacer-medium);
+      margin-left: px-to-rem($s-size-gutter-large) - px-to-rem(10px);
+    }
+  }
+}

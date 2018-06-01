@@ -1,8 +1,10 @@
 <template lang="pug">
   section.Client
     nuxt-link.Client__back(v-on:click.native="currentCase && currentCase.fields ? closeCurrentCase() : null" :to="currentCase && currentCase.fields && client ? '/' + client.fields.clientReference.fields.slug : '/#clients'") Back
-    .Client__teaser-wrap
+    .Client__teaser-wrap(v-if="!videoIsPlaying")
       .Client__column.Client__logo-container(:class="currentCase ? 'is-closed' : ''")
+      transition(name="u-anim-fade")
+        PlayButton(v-show="currentCase && !videoIsPlaying" v-on:click.native="playVideo")
         //- img.Client__logo(:src="client.fields.icon.fields.file.url")
       nuxt-link.Client__column.Client__header(
         v-for="(thing, index) in cases" :style="{ backgroundImage: 'url(' + thing.fields.heroImage.fields.file.url + ')'}"
@@ -10,6 +12,7 @@
         v-on:click.native="findAndSaveCaseBySlug(thing.fields.slug)"
         :to="'/' + client.fields.clientReference.fields.slug + '/' + thing.fields.slug" :key="index"
         :class="currentCase && currentCase.fields && currentCase.fields.slug === thing.fields.slug ? ' is-open' : (currentCase ? 'is-closed' : '') ")
+    Video(v-if="currentCase && currentCase.fields && videoIsPlaying" :vidUrl="currentCase.fields.heroVideo")
     .Client__content-wrap(v-if="currentCase && currentCase.fields")
         ShowCase(:showcase="currentCase.fields")
 </template>
@@ -18,6 +21,9 @@
 import client from '~/plugins/contentful';
 import CloseButton from '~/components/CloseButton/CloseButton';
 import ShowCase from '~/components/ShowcaseCustom/ShowCase';
+import PlayButton from '~/components/ShowcaseCustom/PlayButton';
+import Video from '~/components/Video/Video';
+
 export default {
   // set no-transition if we change route from slug to slug2 to make sure we have no flickering
   transition (to, from) {
@@ -31,7 +37,9 @@ export default {
   },
   components: {
     CloseButton,
-    ShowCase
+    ShowCase,
+    PlayButton,
+    Video
   },
   computed: {
     currentCase() {
@@ -42,6 +50,7 @@ export default {
     return {
       cases: [],
       client: {},
+      videoIsPlaying: false
     }
   },
   asyncData({ params, error, payload }) {
@@ -57,7 +66,7 @@ export default {
         // console.log('wat', clients)
         const cases = showcase.items.filter(e => e.fields.clientName.fields.clientName === 'Allianz')
         const client = clients.items.filter(e => e.fields.clientName === 'Allianz')
-        // console.log('client', cases)
+        console.log('cases', cases)
         return { client: client[0], cases: cases }
 
         // return { showcase }
@@ -76,8 +85,13 @@ export default {
   },
   mounted () {
     this.findAndSaveCaseBySlug()
+    // console.log('video', this.currentCase.fields.heroVideo)
   },
   methods: {
+    playVideo() {
+      console.log('clicked play')
+      this.videoIsPlaying = true
+    },
     findAndSaveCaseBySlug (slug) {
       var caseBySlug = this.cases.find((c) => {
         return c.fields.slug === (slug ? slug : this.$route.params.slug2)
@@ -104,9 +118,18 @@ export default {
   &__teaser-wrap {
     display: flex;
     flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
 
     @include mq($from: medium) {
       flex-flow: row nowrap;
+    }
+
+    .play-btn {
+      cursor: pointer;
+      position: absolute;
+      width: px-to-rem(64px);
+      height: px-to-rem(64px);
     }
   }
 

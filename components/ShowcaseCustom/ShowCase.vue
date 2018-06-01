@@ -1,9 +1,5 @@
 <template lang="pug">
   main.Showcase(v-if="showcase")
-    section.Showcase__video(v-if="showcase.heroVideo")
-      img.Showcase__hero(v-if="showcase.heroImage" :src="showcase.heroImage.fields.file.url")
-      PlayButton
-      .Showcase__title {{showcase.title}}
     section.Showcase__section-info(:style="{ flexDirection: topboxFlexDirection}")
       .Showcase__infobox(v-html="marked(showcase.infobox.fields.content)" :style="{ backgroundColor: showcase.infobox.fields.color }")
       .Showcase__top-text(v-html="marked(showcase.topText)")
@@ -18,9 +14,6 @@
     component(v-if="showcase.customShowcaseSection2" :is="showcase.customShowcaseSection2.sys.contentType.sys.id" :section="showcase.customShowcaseSection2.fields").Showcase__customTwo
     component(v-if="showcase.customShowcaseSection3" :is="showcase.customShowcaseSection3.sys.contentType.sys.id" :section="showcase.customShowcaseSection3.fields").Showcase__customThree
     component(v-if="showcase.customShowcaseSection4" :is="showcase.customShowcaseSection4.sys.contentType.sys.id" :section="showcase.customShowcaseSection4.fields").Showcase__customFour
-
-
-      //- .show {{showcase.topText}}
 </template>
 
 <script>
@@ -48,31 +41,4 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.Showcase {
-  img {
-    width: 100%;
-    max-width: 100vw;
-  }
-  section {
-    min-height: 56vw;
-    max-width: 100vw;
-    display: flex;
-  }
-
-  &__title {
-    position: absolute;
-    left: 4rem;
-    top: 40vw;
-    font-size: 10vw;
-  }
-
-  // &__hero {
-  //   position: absolute;
-  //   left: 0;
-  //   bottom: 0;
-  //   right: 0;
-  //   top: 0;
-  // }
-}
-</style>
+<style src="./Showcase.scss" lang="scss"></style>

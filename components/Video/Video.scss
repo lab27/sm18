@@ -1,0 +1,14 @@
+@import '../../assets/css/global';
+
+$c: 'Video';
+
+.#{$c} {
+  &__wrapper {
+    width: 100%;
+  }
+      iframe {
+        width: 100vw;
+        height: 56.25vw;
+      }
+}
+

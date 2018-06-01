@@ -4,6 +4,7 @@
       span.Person__first-name {{person.fields.firstName}}
       br
       span.Person__last-name {{person.fields.lastName}}
+    h3.Person__title {{person.fields.title}}
     .Person__info
       .title(v-if="isOpen")  {{person.fields.title}}
       .bio(v-if="isOpen")  {{person.fields.shortBio}}

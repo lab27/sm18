@@ -15,8 +15,17 @@ $c: 'Person';
 
   &__name {
     position: absolute;
-    bottom: 4rem;
-    left: 2rem;
+    top: 65vh;
+    left: px-to-rem($s-size-spacer-medium);
+  }
+
+  &__title {
+    position: absolute;
+    top: 80vh;
+    color: white;
+    left: px-to-rem($s-size-spacer-medium);
+    margin-left: px-to-rem($s-size-spacer-medium) + 1rem;
+    max-width: 75vw;
   }
 
   &.open {
@@ -32,7 +41,7 @@ $c: 'Person';
   }
 
   &__first-name {
-    margin-left: 4rem;
+    margin-left: px-to-rem($s-size-spacer-medium);
     margin-top: 2px;
   }
 

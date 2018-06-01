@@ -1,6 +1,6 @@
 <template lang="pug">
   section.Client
-    nuxt-link.Client__back(v-on:click.native="currentCase && currentCase.fields ? closeCurrentCase() : null" :to="currentCase && currentCase.fields && client ? '/' + client.fields.clientReference.fields.slug : '/'") Back
+    nuxt-link.Client__back(v-on:click.native="currentCase && currentCase.fields ? closeCurrentCase() : null" :to="currentCase && currentCase.fields && client ? '/' + client.fields.clientReference.fields.slug : '/#clients'") Back
     .Client__teaser-wrap(v-if="!videoIsPlaying")
       .Client__column.Client__logo-container(:class="currentCase ? 'is-closed' : ''")
       transition(name="u-anim-fade")

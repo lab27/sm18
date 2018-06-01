@@ -4,12 +4,12 @@
     SMLogo
     NoSSR
       full-page(:options="options")
-        Splash.Page__section.section(:claim="claim")
-        Competencies.Page__section.section(:competencies="competencies")
-        Team.Page__section.section(:team="team" v-if="!isMobile")
-        TeamMobile.Page__section.section(:team="team" v-if="isMobile")
-        Clients.Page__section.section(:clients="clients")
-        Contact.Page__section.section(:contact="contact")
+        Splash.Page__section.section(:claim="claim" data-anchor="intro")
+        Competencies.Page__section.section(:competencies="competencies" data-anchor="competencies")
+        Team.Page__section.section(:team="team" v-if="!isMobile" data-anchor="team")
+        TeamMobile.Page__section.section(:team="team" v-if="isMobile" data-anchor="team")
+        Clients.Page__section.section(:clients="clients" data-anchor="clients")
+        Contact.Page__section.section(:contact="contact" data-anchor="contact")
 </template>
 
 

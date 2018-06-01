@@ -1,5 +1,5 @@
 <template lang="pug">
-    section#clients.Clients
+    section.Clients
       .Clients__wrap
         h3.Clients__heading SiR MaRY arbeitet für die
         .Clients__group

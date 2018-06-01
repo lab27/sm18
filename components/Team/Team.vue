@@ -1,6 +1,6 @@
 <template lang="pug">
-    section.Team
-      div#team.Team__scroll-wrap(ref="team")
+    section#team-section.Team
+      div.Team__scroll-wrap(ref="team")
         div.Team__wrap(:style="{ width: teamWidth }")
           Person(v-for="person, index in team" :key="person.id" :person="person" :index="index")
 </template>
@@ -34,7 +34,7 @@ export default {
     this.$store.commit('setTeamWidth', teamWidth)
   },
   mounted () {
-    var movable = document.querySelector('#team');
+    var movable = document.querySelector('#team-section');
     const self = this;
     interact(movable)
     .draggable({

@@ -4,10 +4,16 @@
       span.Person__first-name {{person.fields.firstName}}
       br
       span.Person__last-name {{person.fields.lastName}}
-    h3.Person__title {{person.fields.title}}
-    .Person__info
-      .title(v-if="isOpen")  {{person.fields.title}}
-      .bio(v-if="isOpen")  {{person.fields.shortBio}}
+    transition(name="fade")
+      h3.Person__title(v-if="!opened") {{person.fields.title}}
+    .Person__info(v-if="!isMobile && opened")
+      //- .title(v-if="isOpen")  {{person.fields.title}}
+      .bio(v-show="opened")  {{person.fields.shortBio}}
+    .Person__info-mobile(v-show="isMobile")
+      .Person__bio {{person.fields.shortBio}}
+      .Person__email {{person.fields.email}}
+      .Person__back-btn Back
+
 </template>
 
 <script>
@@ -42,6 +48,7 @@ export default {
   },
   methods: {
     togglePersonOpen(number) {
+      this.opened = !this.opened
       if (this.isMobile) {
         // in mobile mode
         console.log('i am a mobile person', this.$refs.person);

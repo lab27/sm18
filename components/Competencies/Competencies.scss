@@ -3,8 +3,10 @@ $c: 'competencies';
 
 .#{$c} {
   position: relative;
+  overflow: hidden;
 
   &__cards {
+    transform: translateY(-100%);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -43,14 +45,16 @@ $c: 'competencies';
 
   &__heading {
     @include font-style-medium;
+    transform: translateY(-1000%);
     color: white;
     margin-bottom: px-to-rem($s-size-gutter-small) * 2;
     margin-left: px-to-rem($s-size-gutter-small);
-    max-width: 44rem;
-    text-indent: 4rem;
+    max-width: 70%;
     transition: all 0.25s ease-in-out;
 
     @include mq($from: medium) {
+      max-width: 44rem;
+      transform: translateY(-1200%);
       margin-left: px-to-rem($s-size-gutter-large);
     }
 
@@ -177,5 +181,19 @@ $c: 'competencies';
     &:last-child {
       margin-bottom: 0;
     }
+  }
+
+  &.fp-section {
+    &.active {
+      .#{$c}__cards,
+      .#{$c}__heading {
+        transform: translateY(0%);
+      }
+    }
+  }
+
+  &__cards,
+  &__heading {
+    transition: transform 1s;
   }
 }

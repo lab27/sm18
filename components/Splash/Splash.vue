@@ -1,6 +1,6 @@
 <template lang="pug">
   section.Splash
-    we-decomplex
+    we-decomplex.Splash__title
     h3.Splash__claim {{claim.fields.claim}}
 </template>
 

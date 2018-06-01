@@ -3,7 +3,15 @@ $c: 'Splash';
 
 .#{$c} {
   align-items: flex-end;
+
+  &__title,
   &__claim {
+    transform: translateY(-300%);
+    transition: all 1s;
+  }
+
+  &__claim {
+    transform: translateY(-100%);
     @include font-style-medium;
     max-width: px-to-rem(245px);
     font-size: px-to-rem(20px);
@@ -25,6 +33,15 @@ $c: 'Splash';
 
     @include mq($from: medium) {
       padding-bottom: px-to-rem($s-size-gutter-large) * 2;
+    }
+  }
+
+  &.fp-section {
+    &.active {
+      .#{$c}__claim,
+      .#{$c}__title {
+        transform: translateY(0%);
+      }
     }
   }
 }

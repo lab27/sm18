@@ -1,7 +1,7 @@
 <template lang="pug">
   section.Contact
     .Contact__wrap
-      HappyToMeet
+      HappyToMeet.Contact__title
       .Contact__claim
         p(v-html="marked(contact.fields.address)")
         br

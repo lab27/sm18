@@ -2,6 +2,17 @@
 $c: 'Contact';
 
 .#{$c} {
+  overflow: hidden;
+
+  &__title,
+  &__claim {
+    transform: translateY(-200%);
+    transition: all 1s;
+
+    @include mq($from: medium) {
+      transform: translateY(-300%);
+    }
+  }
 
   &__wrap {
     position: absolute;
@@ -16,6 +27,7 @@ $c: 'Contact';
   }
 
   &__claim {
+    transform: translateY(-100%);
     @include font-style-medium;
     max-width: px-to-rem(245px);
     margin-left: px-to-rem(30px);
@@ -37,6 +49,15 @@ $c: 'Contact';
       max-width: 50vw;
       margin-top: px-to-rem($s-size-spacer-medium);
       margin-left: px-to-rem($s-size-gutter-large) - px-to-rem(10px);
+    }
+  }
+
+  &.fp-section {
+    &.active {
+      .#{$c}__claim,
+      .#{$c}__title {
+        transform: translateY(0%);
+      }
     }
   }
 }

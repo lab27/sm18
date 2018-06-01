@@ -95,6 +95,7 @@ $c: 'Person';
   }
 
   &__bio {
+    @include font-style-base;
     line-height: 1.4;
     margin-bottom: px-to-rem($s-size-spacer-medium);
   }

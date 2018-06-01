@@ -30,6 +30,7 @@ $c: 'Clients';
   }
 
   &__heading {
+    @include font-style-medium;
     transform: translateY(-1000%);
     color: white;
     margin-left: px-to-rem($s-size-gutter-medium);

@@ -24,8 +24,13 @@ $p: 'Page';
 }
 
 .fp-tableCell {
-  padding-left: 5em;
-  padding-right: 5em;
+  padding-left: px-to-rem(20px);
+  padding-right: px-to-rem(20px);
+
+  @include mq($from: medium) {
+    padding-left: 5em;
+    padding-right: 5em;
+  }
 }
 
 .Team,

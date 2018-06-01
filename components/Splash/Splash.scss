@@ -4,14 +4,16 @@ $c: 'Splash';
 .#{$c} {
   align-items: flex-end;
   &__claim {
-    max-width: 44rem;
-    font-size: 3rem;
+    max-width: px-to-rem(245px);
+    font-size: px-to-rem(20px);
+    margin-left: px-to-rem(35px);
+    margin-top: px-to-rem($s-size-spacer-medium);
     color: white;
-    margin-left: 4rem;
-    margin-top: 5rem;
     line-height: 1.4;
 
     @include mq($from: medium) {
+      margin-top: 5rem;
+      margin-left: 4rem;
       font-size: 1.75rem;
     }
   }

@@ -1,0 +1,10 @@
+@import '../../assets/css/global';
+$c: 'HappyToMeet';
+.#{$c} {
+  width: 100%;
+  max-width: px-to-rem(474px);
+  
+  @include mq($from: large) {
+    max-width: px-to-rem(474px);
+  }
+}

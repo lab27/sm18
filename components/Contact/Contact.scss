@@ -6,11 +6,11 @@ $c: 'Contact';
   &__wrap {
     position: absolute;
     bottom: 0;
-    margin-bottom: px-to-rem($s-size-gutter-large);
+    margin-bottom: 10vw;
     left: px-to-rem(25px);
 
     @include mq($from: medium) {
-      margin-bottom: px-to-rem($s-size-gutter-large) * 3;
+      margin-bottom: 5vw;
       left: px-to-rem($s-size-gutter-large);
     }
   }

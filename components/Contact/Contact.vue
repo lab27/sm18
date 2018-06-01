@@ -1,7 +1,7 @@
 <template lang="pug">
   section.Contact
     .Contact__wrap
-      p {{contact.fields.heading}}
+      HappyToMeet
       .Contact__claim
         p(v-html="marked(contact.fields.address)")
         br
@@ -10,13 +10,13 @@
         p
           a(:href="'tel:' + contact.fields.telephone") {{contact.fields.telephone}}
 
-    //- h3 {{contact.heading}}
-    //- h3 {{claim.fields.claim}}
 </template>
 
 <script>
+import HappyToMeet from '~/components/HappyToMeet/HappyToMeet'
 export default {
-  props: ['contact']
+  props: ['contact'],
+  components: {'HappyToMeet': HappyToMeet }
 }
 </script>
 

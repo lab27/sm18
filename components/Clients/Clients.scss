@@ -40,6 +40,7 @@ $c: 'Clients';
   }
 
   &__clientName {
+    @include font-style-medium;
     color: white;
     background: #000;
     margin-right: px-to-rem($s-size-gutter-small);

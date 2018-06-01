@@ -1,7 +1,7 @@
 <template lang="pug">
   section.Client
+    nuxt-link.Client__back(v-on:click.native="currentCase && currentCase.fields ? closeCurrentCase() : null" :to="currentCase && currentCase.fields && client ? '/' + client.fields.clientReference.fields.slug : '/'") Back
     .Client__teaser-wrap
-      nuxt-link.Client__back(v-on:click.native="currentCase && currentCase.fields ? closeCurrentCase() : null" :to="currentCase && currentCase.fields && client ? '/' + client.fields.clientReference.fields.slug : '/'") Back
       .Client__column.Client__logo-container(:class="currentCase ? 'is-closed' : ''")
         //- img.Client__logo(:src="client.fields.icon.fields.file.url")
       nuxt-link.Client__column.Client__header(
@@ -97,18 +97,36 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../assets/css/global';
+
 .Client {
 
   &__teaser-wrap {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
+
+    @include mq($from: medium) {
+      flex-flow: row nowrap;
+    }
   }
 
   &__back {
     position: fixed;
-    left: 2rem;
-    bottom: 4rem;
+    left: inherit;
+    bottom: inherit;
+    top: px-to-rem($s-size-spacer-medium);
+    right: px-to-rem($s-size-spacer-medium);
     text-decoration: none;
+
+    @include mq($from: medium) {
+      left: px-to-rem($s-size-spacer-small);
+      bottom: px-to-rem($s-size-spacer-small);
+    }
+
+    &:hover,
+    &:focus {
+      color: black;
+    }
   }
 
   &__header {
@@ -118,16 +136,29 @@ export default {
   }
 
   &__column {
-    width: 25vw;
-    height: 100vh;
+    width: 100vw;
+    height: 25vh;
     transition: all 0.4s;
 
+    @include mq($from: medium) {
+      width: 25vw;
+      height: 100vh;
+    }
+
     &.is-open {
-      width: 100vw;
+      height: 100vw;
+
+      @include mq($from: medium) {
+        width: 100vw;
+      }
     }
 
     &.is-closed {
-      width: 0;
+      height: 0;
+
+      @include mq($from: medium) {
+        width: 0;
+      }
     }
   }
 }

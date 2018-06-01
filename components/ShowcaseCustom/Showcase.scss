@@ -18,19 +18,12 @@ $c: 'Showcase';
   }
   
   section {
-    min-height: 56vw;
+    min-height: 50vw;
     max-width: 100vw;
     display: flex;
-    flex-flow: row wrap;
-
-    @include mq($from:medium) {
-      flex-flow: row nowrap;
-    }
+    max-width: 100vw;
   }
 
-  &__section-info {
-    
-  }
   
   &__top-text {
     padding: px-to-rem(64px);
@@ -39,7 +32,7 @@ $c: 'Showcase';
     min-height: 50vh;
  
     p {
-      font-size: px-to-rem($s-fz-medium);
+      @include font-style-medium;
     }
     
     
@@ -55,7 +48,7 @@ $c: 'Showcase';
     width: 100vw;
     order: 2;
     p {
-      font-size: px-to-rem($s-fz-small);
+      @include font-style-base;    
     }
   }
 
@@ -95,7 +88,7 @@ $c: 'Showcase';
       height: 100vw;
       background-size: cover;
       padding: px-to-rem(64px);
-      font-size: px-to-rem($s-fz-medium);
+      @include font-style-medium;
 
       @include mq($from: medium) {
         width: calc(100vw/3);
@@ -120,7 +113,7 @@ $c: 'Showcase';
     width: 100vw;
     min-height: 100vw;
     padding: px-to-rem(64px);
-    font-size: px-to-rem($s-fz-medium);
+    @include font-style-medium;
     
     @include mq($from: medium) {
       background: lemonchiffon;
@@ -151,9 +144,9 @@ $c: 'Showcase';
     background-repeat: no-repeat;
     background-size: cover;
     width: 100vw;
-    min-height: 100vw;
+    min-height: 100vh;
     padding: px-to-rem(64px);
-    font-size: px-to-rem($s-fz-medium);
+    @include font-style-medium;
     // &:first-child {
     //   display: block;
     // }

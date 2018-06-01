@@ -169,7 +169,7 @@ export default {
     }
 
     &.is-open {
-      height: 100vw;
+      height: 56vw;
 
       @include mq($from: medium) {
         width: 100vw;

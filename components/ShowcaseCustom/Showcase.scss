@@ -168,6 +168,10 @@ $c: 'Showcase';
     }
   }
 
+  &__three-up {
+    display: flex;
+    flex-flow: row wrap;
+  }
 
   &__six-up {
     display: flex;

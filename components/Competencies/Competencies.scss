@@ -19,7 +19,8 @@ $c: 'competencies';
   &__wrap {
     margin-bottom: px-to-rem($s-size-gutter-large);
     position: absolute;
-    bottom: 36vw;
+    bottom: 0;
+    margin-bottom: px-to-rem($s-size-gutter-large);
     left: px-to-rem(25px);
     width: 80vw;
     transition: all 0.25s ease-in-out 0.25s;
@@ -106,6 +107,16 @@ $c: 'competencies';
         height: 60vh;
       }
 
+      &:nth-child(3) {
+        // margin-left: 1rem;
+        height: 55vh;
+      }
+
+      &:nth-child(4) {
+        // margin-left: 1rem;
+        height: 35vh;
+      }
+
       &:last-child {
         // margin-right: 1rem;
       }
@@ -145,7 +156,7 @@ $c: 'competencies';
     @include font-style-medium
     color: white;
     background: #000;
-    padding: .5rem;
+    padding: (px-to-rem($s-size-gutter-small) / 2) px-to-rem($s-size-gutter-small);
     text-align: left;
     transition: all 0.25s;
     display: inline;

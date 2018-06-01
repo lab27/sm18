@@ -3,6 +3,15 @@ $c: 'competencies';
 
 .#{$c} {
   position: relative;
+  font-size: 3rem;
+
+  h2, h3 {
+    font-size: 3rem;
+  }
+
+  h3 {
+    margin-bottom: 3rem;
+  }
 
   &__cards {
     display: flex;
@@ -18,10 +27,10 @@ $c: 'competencies';
 
   &__wrap {
     position: absolute;
-    bottom: 50%;
-    left: 5em;
+    bottom: 36vw;
+    left: 1em;
     transform: translate(0, 50%);
-    width: 500px;
+    width: 80vw;
     transition: all 0.5s ease-in-out 1s;
 
     &.expanded {
@@ -35,7 +44,7 @@ $c: 'competencies';
 
   &__heading {
     color: white;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     margin-left: 4rem;
     // max-width: 100%;
     // transition: all 0.25s ease-in-out 2s;
@@ -52,7 +61,7 @@ $c: 'competencies';
     background: transparent;
     margin-right: .1rem;
     margin-left: .1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
     width: 100%;
     transition: height 1s, width 0s ease-in-out 1.25s, padding 0.15s ease-in-out 1.35s, background-color 0.25s, margin-bottom 0.5s;
     height: 50px;
@@ -82,6 +91,14 @@ $c: 'competencies';
         // white-space: normal;
         // overflow: visible;
       }
+    }
+
+    &.hide {
+      display: none;
+    }
+    
+    &.full-width {
+      width: 100vw;
     }
   }
 

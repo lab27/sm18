@@ -4,10 +4,10 @@
         h2.competencies__heading.expanded(v-if="isExpanded") {{headingExpanded}}
       div.competencies__wrap(:class="{ expanded: isExpanded }")
         transition(name="u-anim-fade-delayed")
-          h2.competencies__heading(v-if="!isExpanded") {{headingSimple}}
+          h2.competencies__heading(v-if="!isExpanded") {{headingSimple}} {{clickedCard}}
         .competencies__cards(:class="{ expanded: isExpanded }")
-          .competencies__card-wrap(v-for="area, index in competencies" :key="index" :class="{ expanded: isExpanded }")
-            .competencies__card(@click="handleExpand")
+          .competencies__card-wrap(v-for="area, index in competencies" :key="index" :class="[isExpanded ? 'expanded' : '', isExpanded && clickedCard !== index ? 'hide' : 'full-width']")
+            .competencies__card(@click="handleExpand(index)" :ref="'card-' + index")
               h3.competencies__card-title {{area.fields.title}}
               transition(name="u-anim-fade-delayed")
                 ul.competencies__card-list(v-if="isExpanded")
@@ -23,12 +23,14 @@ export default {
       // TODO: put these in Contentful!
       headingSimple: 'Sir Mary macht',
       headingExpanded: 'Wir beraten und führen Sie in die digitale Welt und geben Hilfe zur Selbsthilfe.',
-      isExpanded: false
+      isExpanded: false,
+      clickedCard: null
     }
   },
   methods: {
-    handleExpand() {
+    handleExpand(index) {
       this.isExpanded = !this.isExpanded
+      this.clickedCard = (this.expanded ? null : index)
     }
   }
 }

@@ -1,7 +1,7 @@
 <template lang="pug">
-  section#splash
+  section#splash.Splash
     we-decomplex
-    h3 {{claim.fields.claim}}
+    h3.Splash__claim {{claim.fields.claim}}
 </template>
 
 <script>
@@ -13,3 +13,5 @@ export default {
   }
 }
 </script>
+
+<style src="./Splash.scss" lang="scss"></style>

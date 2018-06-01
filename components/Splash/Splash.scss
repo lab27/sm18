@@ -1,0 +1,23 @@
+@import '../../assets/css/global';
+$c: 'Splash';
+
+.#{$c} {
+  align-items: flex-end;
+  &__claim {
+    max-width: 44rem;
+    font-size: 3rem;
+    color: white;
+    margin-left: 4rem;
+    margin-top: 5rem;
+    line-height: 1.4;
+
+    @include mq($from: medium) {
+      font-size: 1.75rem;
+    }
+  }
+
+  .fp-tableCell {
+    vertical-align: bottom;
+    padding-bottom: 25vw;
+  }
+}

@@ -31,7 +31,7 @@
     },
     watch: {
       '$route': function () {
-        if (!this.$route.params.slug) {
+        if (!this.$route.params.slug || this.$route.params.slug2) {
           this.removeMultipleFullpageInstance()
         }
       }

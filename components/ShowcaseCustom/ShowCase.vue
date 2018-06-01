@@ -1,5 +1,5 @@
 <template lang="pug">
-  main.Showcase
+  main.Showcase(v-if="showcase")
     section.Showcase__video(v-if="showcase.heroVideo")
       img.Showcase__hero(v-if="showcase.heroImage" :src="showcase.heroImage.fields.file.url")
       .Showcase__title {{showcase.title}}
@@ -24,10 +24,10 @@
 
 <script>
 import client from '~/plugins/contentful'
-import OneLarge from '~/components/ShowcaseCustom/OneLarge.vue';
-import ThreeUp from '~/components/ShowcaseCustom/ThreeUp.vue';
-import SixUp from '~/components/ShowcaseCustom/SixUp.vue';
-import SmallLarge from '~/components/ShowcaseCustom/SmallLarge.vue';
+import OneLarge from './OneLarge.vue';
+import ThreeUp from './ThreeUp.vue';
+import SixUp from './SixUp.vue';
+import SmallLarge from './SmallLarge.vue';
 
 export default {
   components: {
@@ -36,33 +36,11 @@ export default {
     'showcaseSectionSmallLarge': SmallLarge,
     'showcaseSectionThreeUp': ThreeUp,
   },
-  data () {
-    return {
-      showcase: {}
-    }
-  },
+  props: ['showcase'],
   computed: {
     topboxFlexDirection() {
       return this.showcase.infobox.fields.position === 'Right' ? 'row-reverse' : 'row'
     }
-  },
-  asyncData({ params, error, payload }) {
-    if (payload) return { cases: payload };
-    return client
-      .getEntries({
-        content_type: 'showcase'
-      })
-      .then(entries => {
-        const cases = entries.items.filter(e => e.fields.slug === params.slug)
-        const showcase = cases[0].fields
-
-        return { showcase }
-      })
-      .catch(e => console.log(e));
-  },
-  mounted() {
-    console.log('custom1', this.showcase.customShowcaseSection1.fields);
-
   }
 }
 </script>

@@ -1,21 +1,23 @@
 <template lang="pug">
   section.Client
     .Client__teaser-wrap
-      nuxt-link.Client__back(v-on:click.native="currentCase && currentCase.fields ? closeCurrentCase() : null" :to="currentCase && currentCase.fields ? '/' + currentCase.fields.client.fields.slug : '/'") Back
+      nuxt-link.Client__back(v-on:click.native="currentCase && currentCase.fields ? closeCurrentCase() : null" :to="currentCase && currentCase.fields && client ? '/' + client.fields.clientReference.fields.slug : '/'") Back
       .Client__column.Client__logo-container(:class="currentCase ? 'is-closed' : ''")
-        img.Client__logo(:src="client.fields.icon.fields.file.url")
+        //- img.Client__logo(:src="client.fields.icon.fields.file.url")
       nuxt-link.Client__column.Client__header(
-        v-on:click.native="findAndSaveCaseBySlug(thing.fields.slug)"
-        :to="'/' + client.fields.slug + '/' + thing.fields.slug" :key="index"
         v-for="(thing, index) in cases" :style="{ backgroundImage: 'url(' + thing.fields.heroImage.fields.file.url + ')'}"
+        v-if="thing.fields.slug"
+        v-on:click.native="findAndSaveCaseBySlug(thing.fields.slug)"
+        :to="'/' + client.fields.clientReference.fields.slug + '/' + thing.fields.slug" :key="index"
         :class="currentCase && currentCase.fields && currentCase.fields.slug === thing.fields.slug ? ' is-open' : (currentCase ? 'is-closed' : '') ")
     .Client__content-wrap(v-if="currentCase && currentCase.fields")
-        p {{ currentCase.fields }}
+        ShowCase(:showcase="currentCase.fields")
 </template>
 
 <script>
 import client from '~/plugins/contentful';
 import CloseButton from '~/components/CloseButton/CloseButton';
+import ShowCase from '~/components/ShowcaseCustom/ShowCase';
 export default {
   // set no-transition if we change route from slug to slug2 to make sure we have no flickering
   transition (to, from) {
@@ -28,7 +30,8 @@ export default {
     }
   },
   components: {
-    CloseButton
+    CloseButton,
+    ShowCase
   },
   computed: {
     currentCase() {
@@ -43,20 +46,27 @@ export default {
   },
   asyncData({ params, error, payload }) {
     if (payload) return { cases: payload };
-    return client
-      .getEntries({
-        content_type: 'blogPost'
+    return Promise.all([
+      client.getEntries({
+        content_type: 'showcaseClient'
+      }),
+      client.getEntries({
+        content_type: 'showcase'
       })
-      .then(entries => {
-        const cases = entries.items.filter(e => e.fields.client.fields.slug === params.slug)
-        const client = entries.items.find(e => e.fields.client.fields.slug === params.slug).fields.client
-        return { cases, client }
+    ]).then(([clients, showcase]) => {
+        // console.log('wat', clients)
+        const cases = showcase.items.filter(e => e.fields.clientName.fields.clientName === 'Allianz')
+        const client = clients.items.filter(e => e.fields.clientName === 'Allianz')
+        // console.log('client', cases)
+        return { client: client[0], cases: cases }
+
+        // return { showcase }
       })
       .catch(e => console.log(e));
   },
   watch: {
     '$route': function () {
-      // Watch changes to $route and check if the page is viewed from a WordPress preview
+      console.log('sroute', this.$route.params)
       if (this.$route.params.slug2) {
         this.findAndSaveCaseBySlug()
       } else {

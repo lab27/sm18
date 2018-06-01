@@ -7,11 +7,16 @@ $c: 'Person';
   background-size: cover;
   background-repeat: no-repeat;
   background-color: white;
+  background-position: 20% center;
   will-change: width;
   transition: width .2s $s-default-easing;
   flex-grow: 1;
   flex-shrink: 0;
   position: relative;
+
+  &.open {
+    background-position: 0 20%;
+  }
 
   &__back-btn {
     position: absolute;
@@ -29,7 +34,7 @@ $c: 'Person';
     transition: top .2s $s-default-easing;
     z-index: 10;
 
-    .open & {
+    .open.slide & {
       top: 20vh;
     }
   }
@@ -64,6 +69,10 @@ $c: 'Person';
   }
 
   &__info {
+    position: absolute;
+    bottom: 7vw;
+    right: 7vw;
+    width: px-to-rem(436px);
   }
 
   &__info-mobile {

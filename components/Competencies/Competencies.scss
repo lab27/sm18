@@ -46,7 +46,8 @@ $c: 'competencies';
     color: white;
     margin-bottom: px-to-rem($s-size-gutter-small) * 2;
     margin-left: px-to-rem($s-size-gutter-small);
-    // max-width: 100%;
+    max-width: 44rem;
+    text-indent: 4rem;
     transition: all 0.25s ease-in-out;
 
     @include mq($from: medium) {

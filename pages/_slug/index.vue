@@ -1,6 +1,6 @@
 <template lang="pug">
   section.Client
-    nuxt-link.Client__back(v-on:click.native="currentCase && currentCase.fields ? closeCurrentCase() : null" :to="currentCase && currentCase.fields && client ? '/' + client.fields.clientReference.fields.slug : '/'") Back
+    nuxt-link.Client__back(v-on:click.native="currentCase && currentCase.fields ? closeCurrentCase() : null" :to="currentCase && currentCase.fields && client ? '/' + client.fields.clientReference.fields.slug : '/#clients'") Back
     .Client__teaser-wrap
       .Client__column.Client__logo-container(:class="currentCase ? 'is-closed' : ''")
         //- img.Client__logo(:src="client.fields.icon.fields.file.url")

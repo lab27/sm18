@@ -30,8 +30,11 @@
       }
     },
     watch: {
-      '$route': function () {
-        if (!this.$route.params.slug || this.$route.params.slug2) {
+      '$route': function (from, to) {
+        console.log('from', from, to)
+        if (from.path === to.path && from.hash && to.hash) {
+          return
+        } else if (!this.$route.params.slug || this.$route.params.slug2) {
           this.removeMultipleFullpageInstance()
         }
       }

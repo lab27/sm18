@@ -1,5 +1,5 @@
 <template lang="pug">
-  section#contact.Contact
+  section.Contact
     .Contact__wrap
       p {{contact.fields.heading}}
       .Contact__claim

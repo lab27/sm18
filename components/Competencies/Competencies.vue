@@ -1,5 +1,5 @@
 <template lang="pug">
-    section#competencies.competencies
+    section.competencies
       transition(appear name="u-anim-fade-delayed")
       div.competencies__wrap(:class="{ expanded: isExpanded }")
         transition(name="u-anim-fade-delayed")

@@ -3,15 +3,6 @@ $c: 'competencies';
 
 .#{$c} {
   position: relative;
-  font-size: 3rem;
-
-  h2, h3 {
-    font-size: 3rem;
-  }
-
-  h3 {
-    margin-bottom: 3rem;
-  }
 
   &__cards {
     display: flex;
@@ -96,7 +87,7 @@ $c: 'competencies';
     &.hide {
       display: none;
     }
-    
+
     &.full-width {
       width: 100vw;
     }

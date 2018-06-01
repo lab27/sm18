@@ -1,6 +1,6 @@
 <template lang="pug">
     section#team-section.Team
-      div.Team__scroll-wrap(ref="team")
+      div.Team__scroll-wrap.Team__animated(ref="team")
         div.Team__wrap(:style="{ width: teamWidth }")
           Person(v-for="person, index in team" :key="person.id" :person="person" :index="index")
 </template>

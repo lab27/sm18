@@ -1,6 +1,7 @@
 <template lang="pug">
     section.Team
-      Person(v-for="person, index in team" :key="person.id" :person="person" :index="index").slide
+      .Team__animated
+        Person(v-for="person, index in team" :key="person.id" :person="person" :index="index").slide
 </template>
 
 <script>

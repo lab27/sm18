@@ -21,6 +21,7 @@ $c: 'Clients';
   }
 
   &__group {
+    transform: translateY(-100%);
     max-width: 40rem;
 
     a {
@@ -29,6 +30,7 @@ $c: 'Clients';
   }
 
   &__heading {
+    transform: translateY(-1000%);
     color: white;
     margin-left: px-to-rem($s-size-gutter-medium);
     margin-bottom: px-to-rem($s-size-gutter-small);
@@ -47,6 +49,20 @@ $c: 'Clients';
     margin-bottom: px-to-rem($s-size-gutter-small);
     padding: (px-to-rem($s-size-gutter-small) / 2) px-to-rem($s-size-gutter-small);
     display: inline-block;
+  }
+
+  &__heading,
+  &__group {
+    transition: all 1s;
+  }
+
+  &.fp-section {
+    &.active {
+      .#{$c}__heading,
+      .#{$c}__group {
+        transform: translateY(0);
+      }
+    }
   }
 
 }

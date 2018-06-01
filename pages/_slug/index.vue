@@ -134,7 +134,11 @@ export default {
   }
 
   &__back {
+    @include font-style-medium;
+    display: inline-block;
     position: fixed;
+    width: auto;
+    height: auto;
     left: inherit;
     bottom: inherit;
     top: px-to-rem($s-size-spacer-medium);
@@ -142,8 +146,10 @@ export default {
     text-decoration: none;
 
     @include mq($from: medium) {
-      left: px-to-rem($s-size-spacer-small);
-      bottom: px-to-rem($s-size-spacer-small);
+      right: inherit;
+      top: inherit;
+      left: px-to-rem($s-size-spacer-increased);
+      bottom: px-to-rem($s-size-spacer-huge);
     }
 
     &:hover,

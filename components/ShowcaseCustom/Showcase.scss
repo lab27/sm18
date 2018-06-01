@@ -1,0 +1,34 @@
+@import '../../assets/css/global';
+$c: 'Showcase';
+
+.#{$c} {
+  &__video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .play-btn {
+      width: px-to-rem(62px);
+      height: px-to-rem(62px);
+    }
+  }
+
+  img {
+    width: 100%;
+    max-width: 100vw;
+  }
+  
+  section {
+    min-height: 56vw;
+    max-width: 100vw;
+    display: flex;
+  }
+
+  &__title {
+    position: absolute;
+    left: 4rem;
+    top: 40vw;
+    font-size: 10vw;
+  }
+
+
+}

@@ -17,46 +17,57 @@ $c: 'competencies';
   }
 
   &__wrap {
+    margin-bottom: px-to-rem($s-size-gutter-large);
     position: absolute;
     bottom: 36vw;
-    left: 1em;
+    left: px-to-rem(25px);
     transform: translate(0, 50%);
     width: 80vw;
-    transition: all 0.5s ease-in-out 1s;
+    transition: all 0.25s ease-in-out 0.25s;
 
     &.expanded {
+      margin-bottom: 0;
       transform: translate(0, 0);
       bottom: 0;
       left: 0;
       width: 100vw;
-      transition: all 0.5s;
+      transition: all 0.25s;
     }
   }
 
   &__heading {
+    @include font-style-medium;
     color: white;
-    margin-bottom: 3rem;
+    margin-bottom: px-to-rem($s-size-gutter-small) * 2;
     margin-left: 4rem;
     // max-width: 100%;
-    // transition: all 0.25s ease-in-out 2s;
+    transition: all 0.25s ease-in-out 2s;
 
     &.expanded {
-      position: absolute;
-      top: 10%;
-      max-width: 60%;
+      // position: absolute;
+      // top: 10%;
+      // max-width: 60%;
     }
   }
 
   &__card-wrap {
     flex: 0 0 auto;
     background: transparent;
-    margin-right: .1rem;
-    margin-left: .1rem;
-    margin-bottom: 3rem;
+    margin-bottom: px-to-rem($s-size-gutter-small) * 2;
     width: 100%;
-    transition: height 1s, width 0s ease-in-out 1.25s, padding 0.15s ease-in-out 1.35s, background-color 0.25s, margin-bottom 0.5s;
-    height: 50px;
+    transition: height 0.5s, width 0s ease-in-out 0.75s, padding 0.15s ease-in-out 0.25s, background-color 0.25s, margin-bottom 0.3s;
     padding: 0;
+    height: px-to-rem(25px);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include mq($from: medium) {
+      height: px-to-rem(50px);
+      margin-right: .1rem;
+      margin-left: .1rem;
+    }
 
     &.expanded {
       background: #fff;
@@ -65,7 +76,7 @@ $c: 'competencies';
       padding: 1.5rem;
       width: calc(25% -(2 * .1rem));
       // flex:1 0 auto;
-      transition: height 1s ease-in-out 0.5s, width 0s ease-in-out, padding 1s ease-in-out, background-color 0.5s ease-in-out, margin-bottom 0.25s;
+      transition: height 0.5s ease-in-out 0.25s, width 0s ease-in-out, padding 0.25s ease-in-out, background-color 0.25s ease-in-out, margin-bottom 0.25s;
 
       &:first-child {
         // margin-left: 1rem;
@@ -101,6 +112,7 @@ $c: 'competencies';
   }
 
   &__card-title {
+    @include font-style-medium
     color: white;
     background: #000;
     padding: .5rem;

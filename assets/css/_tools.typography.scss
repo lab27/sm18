@@ -21,6 +21,15 @@
   }
 }
 
+@mixin fz-medium {
+  font-size: px-to-rem($s-fz-medium);
+  line-height: $s-line-height-std;
+
+  @include mq($from: medium) {
+    font-size: px-to-rem($s-fz-medium-large);
+  }
+}
+
 @mixin fz-heading4 {
   font-size: px-to-rem($s-fz-heading4);
   line-height: $s-line-height-std;
@@ -100,6 +109,11 @@
 
 @mixin font-style-base {
   @include fz-base;
+  font-family: $s-font-family-base;
+}
+
+@mixin font-style-medium {
+  @include fz-medium;
   font-family: $s-font-family-base;
 }
 

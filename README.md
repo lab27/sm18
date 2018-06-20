@@ -1,6 +1,6 @@
-# sm18
+# Sir Mary Website 2018
 
-> Sir Mary Website Summer 2018
+> A static site built with Nuxt/Contentful/Netlify.
 
 
 ## Main Technologies

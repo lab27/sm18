@@ -8,6 +8,7 @@
 - [Nuxt](https://github.com/nuxt/nuxt.js) (Frontend framework, Vue)
 - [Contentful](https://contentful.com) (CMS/API)
 - [Fullpage.js](https://alvarotrigo.com/vue-fullpage/) (Scrolling component)
+- [Netlify](https://netlify.com) (Hosting)
 
 ## Build Setup
 

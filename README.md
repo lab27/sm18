@@ -1,3 +1,5 @@
+![Sir Mary](https://github.com/lab27/sm18/blob/master/static/img/SM.png)
+
 # Sir Mary Website 2018
 
 > A static site built with Nuxt/Contentful/Netlify.

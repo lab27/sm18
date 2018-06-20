@@ -27,3 +27,6 @@ $ yarn dev
 
 Whenever you push to `master`, it will trigger the build/deploy hook on **Netflify**
 http://sirmary.netlify.com
+
+## Questions?
+Ask Nick: nick@nickniles.com

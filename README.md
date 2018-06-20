@@ -2,21 +2,25 @@
 
 > Sir Mary Website Summer 2018
 
+
+## Main Technologies
+
+- [Nuxt](https://github.com/nuxt/nuxt.js) (Frontend framework, Vue)
+- [Contentful](https://contentful.com) (CMS/API)
+- [Fullpage.js](https://alvarotrigo.com/vue-fullpage/) (Scrolling component)
+
 ## Build Setup
 
 ``` bash
 # install dependencies
-$ npm install # Or yarn install
+$ yarn
 
 # serve with hot reload at localhost:3000
-$ npm run dev
+$ yarn dev
 
-# build for production and launch server
-$ npm run build
-$ npm start
-
-# generate static project
-$ npm run generate
 ```
 
-For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
+## Deploy
+
+Whenever you push to `master`, it will trigger the build/deploy hook on **Netflify**
+http://sirmary.netlify.com
